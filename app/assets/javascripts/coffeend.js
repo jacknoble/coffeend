@@ -17,3 +17,7 @@ window.Coffeend = {
 		}
 	}
 }
+
+$(function () {
+	Coffeend.initialize();
+});

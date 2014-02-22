@@ -10,4 +10,4 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 		alert('this is working')
 	}
 
-})
+});

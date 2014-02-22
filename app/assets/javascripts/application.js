@@ -14,7 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= requre bootstrap
+//= require underscore
 //= require backbone
+//= require coffeend
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
