@@ -5,11 +5,12 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by_session_token
+    p session[:token]
+    @current_user ||= User.find_by_session_token(session[:token])
   end
 
   def logged_in?
-    !!@current_user
+    !current_user.nil?
   end
 
   def require_logged_in

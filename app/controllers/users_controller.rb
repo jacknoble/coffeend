@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.permit!)
+    @user = User.new(params[:user].permit!)
+    login(@user)
+    redirect_to root_url
   end
 end

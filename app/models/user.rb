@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
   validates :email, :presence => true
-  validates :age, :numericality => true
-  validates
-    :password,
-    :presence => true,
-    :length => { :minimum => 6 },
-    :on => :create
+  validates :age, :numericality => true, :allow_blank => true
+  validates :password,
+            :presence => true,
+            :length => { :minimum => 6 },
+            :on => :create
 
     before_validation :require_session_token
 
