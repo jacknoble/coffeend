@@ -7,17 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="navbar">
-	  <div class="navbar-inner">
-	    <a class="brand" href="#">Coffeend</a>
-	    <ul class="nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#">Link</a></li>
-	      <li><%=link_to("Logout", session_url, :method => :delete)%></li>
-	    </ul>
-	  </div>
+	<div class="container">
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <a class="brand" href="#">Coffeend</a>
+		    <ul class="nav">
+		      <li class="active"><a href="#">Home</a></li>
+		      <li><a href="#">Link</a></li>
+		      <li><%=link_to("Logout", session_url, :method => :delete)%></li>
+		    </ul>
+		  </div>
+		</div>
+	<%= yield %>
 	</div>
-<%= yield %>
-
 </body>
 </html>
