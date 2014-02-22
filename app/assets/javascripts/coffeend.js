@@ -28,8 +28,7 @@ window.Coffeend = {
 					Backbone.history.start();
 				}
 			});
-		}
-
+		})
 	}
 }
 

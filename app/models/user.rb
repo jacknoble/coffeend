@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     before_validation :require_session_token
 
   attr_reader :password
+  attr_accessor :nearby_hangouts
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
@@ -41,4 +42,5 @@ class User < ActiveRecord::Base
   def is_password?(pt_password)
     BCrypt::Password.new(self.password_digest).is_password?(pt_password)
   end
+
 end

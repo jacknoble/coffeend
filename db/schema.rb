@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222070003) do
+ActiveRecord::Schema.define(version: 20140222231548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hangouts", force: true do |t|
+    t.integer  "user_id",       null: false
+    t.datetime "start",         null: false
+    t.datetime "end"
+    t.string   "location_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "lat"
+    t.float    "lng"
+  end
+
+  add_index "hangouts", ["location_name"], name: "index_hangouts_on_location_name", using: :btree
+  add_index "hangouts", ["start"], name: "index_hangouts_on_start", using: :btree
+  add_index "hangouts", ["user_id"], name: "index_hangouts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
