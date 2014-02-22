@@ -18,6 +18,10 @@
 		    </ul>
 		  </div>
 		</div>
+
+		<%[*flash[:errors]].each do |error|%>
+			<%=error%>
+		<%end%>
 	<%= yield %>
 	</div>
 </body>

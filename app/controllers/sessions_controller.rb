@@ -7,8 +7,13 @@ class SessionsController < ApplicationController
     email = params[:email]
     password = params[:password]
     @user = User.find_by_credentials(email, password)
-    login(@user)
-    redirect_to root_url
+    if @user
+      login(@user)
+      redirect_to root_url
+    else
+      flash.now[:errors] = ["Invalid email or password"]
+      render :new
+    end
   end
 
   def destroy
