@@ -6,10 +6,10 @@ coffieend
 
 ###Models
 + `User`
-  `first_name`
-  `last_name`
-  `job`
-  `age`
-  `sex`
-  `self_summary`
-  `photo`   
+    + `first_name`
+    + `last_name`
+    + `job`
+    + `age`
+    + `sex`
+    + `self_summary`
+    + `photo`   
