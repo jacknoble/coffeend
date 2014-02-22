@@ -3,5 +3,6 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new(params.permit!)
   end
 end
