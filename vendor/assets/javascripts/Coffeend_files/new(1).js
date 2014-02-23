@@ -11,12 +11,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 
 	createHangout: function(event){
 		event.preventDefault();
-		var hang_data = $(event.target).serializeJSON();
-		var hangout = new Coffeend.Models.Hangout();
-		hangout.save({}, {
-			success: function(){
-				Coffeend.hangouts.add(hangout);
-			}
-		})
+		debugger
 	}
 })
+;
