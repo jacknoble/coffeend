@@ -5,5 +5,6 @@ Coffeend::Application.routes.draw do
   namespace :api, :defaults => { :format => :json } do
     resource :user, :only => [:show, :update]
     get 'users/:id' => 'api/users#show_other_user'
+    resources :hangouts, :only => [:create, :index, :destroy, :update]
   end
 end
