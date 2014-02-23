@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     params.permit!
-    email = params[:email]
-    password = params[:password]
+    email = params[:user][:email]
+    password = params[:user][:password]
     @user = User.find_by_credentials(email, password)
     if @user
       login(@user)

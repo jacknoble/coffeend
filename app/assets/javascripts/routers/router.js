@@ -13,8 +13,8 @@ Coffeend.Routers.Router = Backbone.Router.extend({
   		div: '#map',
   		lat: -12.043333,
   		lng: -77.028333,
-			height: "500px",
-			width: "500px"
+			height: "400px",
+			width: "100%"
 		});
 	}
 
