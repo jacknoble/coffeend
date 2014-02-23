@@ -11,4 +11,5 @@
  *= require_self
  *= require_tree .
  */
-@import "bootstrap.css"
+@import "bootstrap.css.scss";
+@import "bootstrap-datetimepicker.min.css"

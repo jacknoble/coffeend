@@ -11,6 +11,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 
 	createHangout: function(event){
 		event.preventDefault();
-
+		debugger
 	}
 })
