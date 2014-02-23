@@ -6,7 +6,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 
 	routes:{
 		'':'root',
-    'hangouts/:id': 'showHangout'
+    'hangouts/:id': 'showHangout',
 		'new': "newHangout"
 	},
 
