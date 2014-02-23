@@ -24,6 +24,7 @@ window.Coffeend = {
 				type: 'GET',
 				success: function (data) {
 					Coffeend.user = new Coffeend.Models.User(data);
+          Coffeend.hangouts
 					Coffeend.router = new Coffeend.Routers.Router({ $rootEl: $root })
 					Backbone.history.start();
 				}

@@ -7,6 +7,5 @@ development:
   adapter: postgresql
   database: coffeend_developement
   hostname: localhost
-  username: appacademy
   pool: 5
   timeout: 5000
