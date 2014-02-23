@@ -15,6 +15,7 @@
 //= requre bootstrap
 //= require underscore
 //= require backbone
+//= require gmaps
 //= require coffeend
 //= require_tree ../templates
 //= require_tree ./models
