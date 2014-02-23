@@ -14,11 +14,11 @@ window.Coffeend = {
   parseAndStart: function (data) {
 		var $root = $('#content');
     var $bottom = $('#bottom');
-    Coffeend.hangouts = new Coffeend.Collections.Hangouts( 
+    Coffeend.hangouts = new Coffeend.Collections.Hangouts(
       data['nearby_hangouts']
     );
     Coffeend.user = new Coffeend.Models.User(data['user']);
-    Coffeend.router = new Coffeend.Routers.Router({ 
+    Coffeend.router = new Coffeend.Routers.Router({
       $rootEl: $root ,
       $bottomEl: $bottom
     })
