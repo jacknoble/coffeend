@@ -18,8 +18,9 @@ window.Coffeend = {
       data['nearby_hangouts']
     );
     Coffeend.user = new Coffeend.Models.User(data['user']);
+    Coffeend.users = new Coffeend.Collections.Users(data['users']);
     Coffeend.router = new Coffeend.Routers.Router({
-      $rootEl: $root ,
+      $rootEl: $root,
       $bottomEl: $bottom
     })
     Backbone.history.start();

@@ -7,6 +7,7 @@ class Hangout < ActiveRecord::Base
     lat = location[:lat]
     lng = location[:lng]
     Hangout
+      .includes(:user)
       .where("lat < ? AND lat > ?", lat + rad, lat - rad)
       .where("lng < ? AND lng > ?", lng + rad, lng - rad)
   end
