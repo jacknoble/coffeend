@@ -6,7 +6,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 
 	routes:{
 		'':'root',
-    'show/:id': 'showHangout'
+    'hangouts/:id': 'showHangout'
 	},
 
 	root: function(){
@@ -14,8 +14,8 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 		this.$rootEl.html(mapShow.render().$el);
 		new GMaps({
   		div: '#map',
-  		lat: -12.043333,
-  		lng: -77.028333,
+  		lat: Coffeend.lat,
+  		lng: Coffeend.lng,
 			height: "400px",
 			width: "100%"
 		});
@@ -27,5 +27,4 @@ Coffeend.Routers.Router = Backbone.Router.extend({
     });
     this.$bottomEl.html(hangoutShow.render().$el);
   }
-
 });
