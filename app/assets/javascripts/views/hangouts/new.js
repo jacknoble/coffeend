@@ -10,7 +10,9 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		return this
 	},
 	events: {
-		"submit":"createHangout"
+		"submit":"createHangout",
+		"typeahead:selected":"addLocationData",
+		"typeahead:autocompleted":"addLocationData"
 	},
 
 	addAutoComplete: function(){
@@ -22,7 +24,11 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		    url: 'api/coffee_shops/?location=' + Coffeend.lat + ',' + Coffeend.lng,
 		    filter: function(list) {
 		      var cafes =  $.map(list.results, function(shop) {
-						return { name: shop.name, vicinity: shop.vicinity };
+						return {
+							name: shop.name,
+							vicinity: shop.vicinity,
+							location: shop.geometry.location
+						};
 					});
 					return cafes
 		    }
@@ -34,6 +40,11 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	    displayKey: 'name',
 	    source: shops.ttAdapter()
 		})
+	},
+
+	addLocationData: function(event, suggestion, dataset){
+		$('#hangout_lat').val(suggestion.location.lat)
+		$('#hangout_lng').val(suggestion.location.lng)
 	},
 
 	createHangout: function(event){
