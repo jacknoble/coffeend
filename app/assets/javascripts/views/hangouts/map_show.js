@@ -4,6 +4,7 @@ Coffeend.Views.MapShow = Backbone.View.extend({
 		class: "col-xs-12",
 		style: "margin-left: 21px"
 	},
+
 	render: function () {
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
@@ -15,7 +16,7 @@ Coffeend.Views.MapShow = Backbone.View.extend({
 	},
 
 	renderMap: function() {
-		new GMaps({
+		var map = new GMaps({
   		div: '#map',
   		lat: Coffeend.lat,
   		lng: Coffeend.lng,
