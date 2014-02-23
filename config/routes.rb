@@ -1,4 +1,5 @@
 Coffeend::Application.routes.draw do
+  get "coffee_shops/index"
   root to: "root#root"
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
@@ -6,5 +7,6 @@ Coffeend::Application.routes.draw do
     resource :user, :only => [:show, :update]
     get 'users/:id' => 'users#show_other_user'
     resources :hangouts, :only => [:create, :index, :destroy, :update]
+    resources :coffee_shops, :only => [:index]
   end
 end

@@ -19,6 +19,7 @@
 //= require coffeend
 //= require bootstrap-datetimepicker.min.js
 //= require jquery.serializeJSON
+//= require typeahead.js
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

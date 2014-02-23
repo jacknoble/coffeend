@@ -9,6 +9,8 @@ gem 'paperclip'
 gem 'figaro'
 gem 'backbone-on-rails'
 gem 'ejs'
+gem 'addressable'
+gem 'rest-client'
 
 gem 'sass-rails', '~> 4.0.0'
 # Use SCSS for stylesheets

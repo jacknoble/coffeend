@@ -4,9 +4,9 @@
 	<input type="text" name="hangout[location_name]" id="hangout_location_name">
 	<br>
 	<label for="hangout_start">Start time:</label>
-  <div class="input-append date dtpick">
+  <div id="dtpick1" class="input-append">
   	<input
-			data-format="dd/MM/yyyy hh:mm:ss"
+			data-format="dd/MM/yyyy HH:mm:ss PP"
 		 	type="text"
 		 	name="hangout[start]"
 			id="hangout_start"
@@ -18,9 +18,9 @@
   	</span>
   </div>
 	<label for="hangout_end">End time:</label>
-	<div class="input-append date dtpick">
+	<div id="dtpick2" class="input-append">
 		<input
-			data-format="dd/MM/yyyy hh:mm:ss"
+			data-format="HH:mm:ss PP"
 			type="text"
 			name="hangout[end]"
 			id="hangout_end">
@@ -30,14 +30,19 @@
 	    </i>
 	  </span>
 	</div>
-	<input type="submit" id="submit" value="Create Coffee Date">
+	<input class="btn btn-primary" style="background: brown" type="submit" id="submit" value="Create Coffee Date">
 </form>
 
 <script type="text/javascript">
   $(function() {
-    $('.dtpick').datetimepicker({
+    $('#dtpick1').datetimepicker({
       language: 'en',
       pick12HourFormat: true
+    });
+    $('#dtpick2').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true,
+			pickDate: false
     });
   });
 </script>
