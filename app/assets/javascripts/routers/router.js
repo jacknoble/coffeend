@@ -2,7 +2,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	initialize: function(options){
 		this.$rootEl = options.$rootEl;
     this.$bottomEl = options.$bottomEl;
-		var mapShow = new Coffeend.Views.MapShow();
+		var mapShow = new Coffeend.Views.MapShow({collection: Coffeend.hangouts});
 		this.$rootEl.html(mapShow.render().$el);
 	},
 

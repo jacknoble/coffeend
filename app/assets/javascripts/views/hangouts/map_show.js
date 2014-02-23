@@ -1,4 +1,7 @@
 Coffeend.Views.MapShow = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(this.collection, 'add remove', this.renderMap)
+	},
 	template: JST['hangouts/map_show'],
 	attributes:{
 		class: "col-xs-12",
@@ -38,5 +41,6 @@ Coffeend.Views.MapShow = Backbone.View.extend({
         }
       });
 		})
-	}
+	},
+
 });
