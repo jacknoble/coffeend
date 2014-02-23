@@ -2,6 +2,8 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	initialize: function(options){
 		this.$rootEl = options.$rootEl;
     this.$bottomEl = options.$bottomEl;
+		var mapShow = new Coffeend.Views.MapShow();
+		this.$rootEl.html(mapShow.render().$el);
 	},
 
 	routes:{
@@ -13,8 +15,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	},
 
 	root: function(){
-		var mapShow = new Coffeend.Views.MapShow();
-		this.$rootEl.html(mapShow.render().$el);
+    this.$bottomEl.html('<div style="margin-left:30px">FUCK YEAH! MAPS BITCH</div>');
 	},
 
   showHangout: function (id) {

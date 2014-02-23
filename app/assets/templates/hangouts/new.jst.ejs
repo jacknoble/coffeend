@@ -1,48 +1,50 @@
-<h3>New Coffee Date</h3>
-<form action="api/hangouts/" method="post">
-	<label for="hangout_location_name">Location:</label>
-	<input type="text" name="hangout[location_name]" id="hangout_location_name">
-	<br>
-	<label for="hangout_start">Start time:</label>
-  <div id="dtpick1" class="input-append">
-  	<input
-			data-format="dd/MM/yyyy HH:mm:ss PP"
-		 	type="text"
-		 	name="hangout[start]"
-			id="hangout_start"
-		 >
-		</input>
-  	<span class="add-on">
-     <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-     </i>
-  	</span>
-  </div>
-	<label for="hangout_end">End time:</label>
-	<div id="dtpick2" class="input-append">
-		<input
-			data-format="HH:mm:ss PP"
-			type="text"
-			name="hangout[end]"
-			id="hangout_end">
-		</input>
-	  <span class="add-on">
-	    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-	    </i>
-	  </span>
-	</div>
-	<input class="btn btn-primary" style="background: brown" type="submit" id="submit" value="Create Coffee Date">
-</form>
+<div style="margin-left: 30px">
+  <h3>New Coffee Date</h3>
+  <form action="api/hangouts/" method="post">
+    <label for="hangout_location_name">Location:</label>
+    <input type="text" name="hangout[location_name]" id="hangout_location_name">
+    <br>
+    <label for="hangout_start">Start time:</label>
+    <div id="dtpick1" class="input-append">
+      <input
+        data-format="dd/MM/yyyy HH:mm:ss PP"
+        type="text"
+        name="hangout[start]"
+        id="hangout_start"
+       >
+      </input>
+      <span class="add-on">
+       <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+       </i>
+      </span>
+    </div>
+    <label for="hangout_end">End time:</label>
+    <div id="dtpick2" class="input-append">
+      <input
+        data-format="HH:mm:ss PP"
+        type="text"
+        name="hangout[end]"
+        id="hangout_end">
+      </input>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+        </i>
+      </span>
+    </div>
+    <input class="btn btn-primary" style="background: brown" type="submit" id="submit" value="Create Coffee Date">
+  </form>
 
-<script type="text/javascript">
-  $(function() {
-    $('#dtpick1').datetimepicker({
-      language: 'en',
-      pick12HourFormat: true
+  <script type="text/javascript">
+    $(function() {
+      $('#dtpick1').datetimepicker({
+        language: 'en',
+        pick12HourFormat: true
+      });
+      $('#dtpick2').datetimepicker({
+        language: 'en',
+        pick12HourFormat: true,
+        pickDate: false
+      });
     });
-    $('#dtpick2').datetimepicker({
-      language: 'en',
-      pick12HourFormat: true,
-			pickDate: false
-    });
-  });
-</script>
+  </script>
+</div>
