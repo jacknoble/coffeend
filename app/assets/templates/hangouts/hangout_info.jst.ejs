@@ -1,0 +1,42 @@
+<%
+  var days = ['Sunday', 
+              'Monday', 
+              'Tuesday', 
+              'Wednesday', 
+              'Thursday', 
+              'Friday', 
+              'Saturday']
+
+  var status;
+  var color;
+  var start = new Date(Date.parse(hangout.get('start')));
+  var end = new Date(Date.parse(hangout.get('end')));
+  var end_time = end.toLocaleTimeString();
+  var start_time = start.toLocaleTimeString();
+  var current_time = new Date();
+  var user = Coffeend.users.get(hangout.get('user_id'));
+  start_time = start_time.slice(0, start_time.length - 6);
+  end_time = end_time.slice(0, end_time.length - 6);
+
+  if (current_time < end && current_time > start) {
+    status = "Happening now";
+    color = "orange";
+  } else if (current_time > end || current_time > start) {
+    status = "Over";
+    color = "red";
+  } else if (current_time < start) {
+    status = "Hasn't started";
+    color = 'green';
+  } 
+%>
+<p class="start-time">
+  <strong>When: </strong>
+<%= days[start.getDay()] %> <%= start_time %> - <%= end_time%></p>
+Check <a href="#/users/<%= user.get('id') %>"> 
+  <%= user.get('first_name') %>
+</a> out!
+<strong><p style="color: <%= color %>"><%= status %></p></strong>
+<% if (Coffeend.user.get('id') === hangout.get('user_id')) { %>
+  <button class="btn btn-default">Cancel Event</button>
+<% } %>
+

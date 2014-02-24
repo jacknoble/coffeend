@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coffeend</title>
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyB1q3CH-oShYFvreoy4yyQb-RqzzRKpg8o&sensor=false&libraries=places"></script>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="container">
+		<div class="navbar">
+		  <div class="navbar-inner">
+		    <a class="brand" href="#">Coffeend</a>
+		    <ul class="nav">
+		      <li><a href="#">Home</a></li>
+		      <li><a href="#new">New Coffee Date</a></li>
+		      <li><%=link_to("Logout", session_url, :method => :delete)%></li>
+		    </ul>
+		  </div>
+		</div>
+
+		<%[*flash[:errors]].each do |error|%>
+			<%=error%>
+		<%end%>
+	<%= yield %>
+	</div>
+</body>
+</html>

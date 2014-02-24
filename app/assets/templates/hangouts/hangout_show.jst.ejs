@@ -1,0 +1,15 @@
+<%
+  var start = new Date(Date.parse(hangout.get('start')));
+  var end = new Date(Date.parse(hangout.get('end')));
+  var end_time = end.toLocaleTimeString();
+  var start_time = start.toLocaleTimeString();
+  var current_time = new Date();
+  start_time = start_time.slice(0, start_time.length - 6);
+  end_time = end_time.slice(0, end_time.length - 6);
+
+%>
+<div style="margin-left: 30px">
+  Start: <%= start_time%> <br>
+  End: <%= end_time%> <br>
+  Location Name: <%= hangout.get('location_name') %> <br>
+</div>
