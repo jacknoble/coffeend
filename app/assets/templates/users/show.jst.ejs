@@ -1,9 +1,9 @@
 <div style="margin-left: 30px" class="user-show">
-  Email: <%= user.get('email') %><br>
-  First Name: <%= user.get('first_name') %><br>
-  Last Name: <%= user.get('last_name') %><br>
-  Job: <%= user.get('job') %><br>
-  Age: <%= user.get('age') %><br>
-  Sex: <%= user.get('sex') %><br>
-  Summary: <%= user.get('self_summary') %><br>
+  Email: <%= user.escape('email') %><br>
+  First Name: <%= user.escape('first_name') %><br>
+  Last Name: <%= user.escape('last_name') %><br>
+  Job: <%= user.escape('job') %><br>
+  Age: <%= user.escape('age') %><br>
+  Sex: <%= user.escape('sex') %><br>
+  Summary: <%= user.escape('self_summary') %><br>
 </div>

@@ -11,12 +11,18 @@ Coffeend.Routers.Router = Backbone.Router.extend({
     'hangouts/:id': 'showHangout',
 		'new': "newHangout",
     'users/:id': "showOtherUser",
-    'user': 'showCurrentUser'
+    'user': 'showCurrentUser',
+    'profile': 'editProfile' 
 	},
 
 	root: function(){
     this.$bottomEl.html('<div style="margin-left:30px">FUCK YEAH! MAPS BITCH</div>');
 	},
+
+  editProfile: function(){
+    var editUser = Coffeend.Views.EditUser({model: Coffeend.user})
+    this.$bottomEl.html(editUser.render().$el)
+  }
 
   showHangout: function (id) {
     var hangoutShow = new Coffeend.Views.HangoutShow({
