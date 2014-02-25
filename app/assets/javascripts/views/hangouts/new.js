@@ -41,10 +41,11 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		$('#hangout_location_name').typeahead(null, {
 	    displayKey: 'name',
 	    source: shops.ttAdapter(),
+	    highlight: true,
 	    templates: {
 		    suggestion: Handlebars.compile([
-		      '<p class="repo-name">{{name}}</p>',
-		      '<p class="repo-description">{{Vacinity}}</p>'
+		      '<p class="tt-name">{{name}}</p>',
+		      '<p class="tt-vac">{{vicinity}}</p>'
 		    ].join(''))
   		}
 		})

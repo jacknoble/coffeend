@@ -2,7 +2,6 @@
 <form action="api/hangouts/" method="post">
 	<label for="hangout_location_name">Location:</label>
 	<input type="text" name="hangout[location_name]" id="hangout_location_name">
-	<br>
 	<label for="hangout_start">Start time:</label>
   <div id="dtpick1" class="input-append">
   	<input
@@ -17,19 +16,8 @@
      </i>
   	</span>
   </div>
-	<label for="hangout_end">End time:</label>
-	<div id="dtpick2" class="input-append">
-		<input
-			data-format="HH:mm:ss PP"
-			type="text"
-			name="hangout[end]"
-			id="hangout_end">
-		</input>
-	  <span class="add-on">
-	    <i data-time-icon="icon-time" data-date-icon="icon-calendar">
-	    </i>
-	  </span>
-	</div>
+	<label for="hangout_duration">Duration:</label>
+	<input type="number" id="hangout_duration" name="hangout[duration]" min="1" max="8">
 	<input type="hidden" id="hangout_lat" value="nil" name="hangout[lat]">
 	<input type="hidden" id="hangout_lng" value="nil" name="hangout[lng]">
 	<input class="btn btn-primary" style="background: brown" type="submit" id="submit" value="Create Coffee Date">

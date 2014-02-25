@@ -24,7 +24,7 @@ module Api::CoffeeShopsHelper
     end
 
     def self.trim_location(location)
-      full, trim_lat, trim_lng = location.match(/(^*\d*\.\d\d\d)\d*,(.*\.\d\d\d)/).to_a
+      full, trim_lat, trim_lng = location.match(/(^*\d*\.\d\d)\d*,(.*\.\d\d)/).to_a
       [trim_lat, trim_lng].join(',')
     end
 
@@ -35,7 +35,7 @@ module Api::CoffeeShopsHelper
       $redis.rpush(trim_location(location), results) unless results.empty?
       page_count -=1
       if page_count > 0 && resp['next_page_token']
-        sleep(2)
+        sleep(1.2)
         get_coffee_shop_pages(location, page_count, resp['next_page_token'] )
       end
     end
