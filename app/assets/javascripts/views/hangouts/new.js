@@ -16,6 +16,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	},
 
 	addAutoComplete: function(){
+		console.log('running')
 		var shops = new Bloodhound({
 		  datumTokenizer: function(d) { return d.name; },
 		  queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -23,11 +24,14 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		  prefetch: {
 		    url: 'api/coffee_shops/?location=' + Coffeend.lat + ',' + Coffeend.lng,
 		    filter: function(list) {
-		      var cafes =  $.map(list.results, function(shop) {
+		    	console.log("filtering")
+		      var cafes = $.map(list, function(shop) {
+						var jshop = $.parseJSON(shop)
+						console.log(jshop)
 						return {
-							name: shop.name,
-							vicinity: shop.vicinity,
-							location: shop.geometry.location
+							name: jshop.name,
+							vicinity: jshop.vicinity,
+							location: jshop.geometry
 						};
 					});
 					return cafes

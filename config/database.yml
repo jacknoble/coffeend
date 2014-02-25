@@ -1,11 +1,8 @@
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: coffeend_developement
-  hostname: localhost
+  database: coffeend_dev
+  host: localhost
+  username: coffeend
+  password: coffeend
   pool: 5
   timeout: 5000
