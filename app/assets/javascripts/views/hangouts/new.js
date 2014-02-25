@@ -16,24 +16,22 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	},
 
 	addAutoComplete: function(){
-		console.log('running')
 		var shops = new Bloodhound({
-		  datumTokenizer: function(d) { return d.name; },
+		  datumTokenizer: function (d) { return Bloodhound.tokenizers.whitespace(d.name); },
 		  queryTokenizer: Bloodhound.tokenizers.whitespace,
 		  limit: 75,
 		  prefetch: {
 		    url: 'api/coffee_shops/?location=' + Coffeend.lat + ',' + Coffeend.lng,
 		    filter: function(list) {
-		    	console.log("filtering")
 		      var cafes = $.map(list, function(shop) {
 						var jshop = $.parseJSON(shop)
-						console.log(jshop)
 						return {
 							name: jshop.name,
 							vicinity: jshop.vicinity,
 							location: jshop.geometry
 						};
 					});
+					console.log(cafes)
 					return cafes
 		    }
 		  }
@@ -42,7 +40,13 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		shops.initialize();
 		$('#hangout_location_name').typeahead(null, {
 	    displayKey: 'name',
-	    source: shops.ttAdapter()
+	    source: shops.ttAdapter(),
+	    templates: {
+		    suggestion: Handlebars.compile([
+		      '<p class="repo-name">{{name}}</p>',
+		      '<p class="repo-description">{{Vacinity}}</p>'
+		    ].join(''))
+  		}
 		})
 	},
 

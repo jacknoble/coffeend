@@ -10,11 +10,10 @@ module Api::CoffeeShopsHelper
       :query_values => {
         :location => location,
         :keyword => "coffee",
-        :types => "cafe",
         :sensor => "false",
-        :radius => "10000",
-        :page_token => page_token,
-        :key => ENV["GOOGLE_MAPS_KEY"]
+        :radius => "50000",
+        :key => ENV["GOOGLE_MAPS_KEY"],
+        :pagetoken => page_token
       }
       ).to_s
     end
@@ -30,12 +29,13 @@ module Api::CoffeeShopsHelper
     end
 
     def self.get_coffee_shop_pages(location, page_count, page_token)
-      @uri ||= self.google_coffee_uri(location, page_token).gsub!(/%2C/, ',')
-      resp = JSON.parse(RestClient.get(@uri))
+      uri = self.google_coffee_uri(location, page_token).gsub!(/%2C/, ',')
+      resp = JSON.parse(RestClient.get(uri))
       results = resp["results"].map(&:to_json)
-      $redis.rpush(trim_location(location), results)
+      $redis.rpush(trim_location(location), results) unless results.empty?
       page_count -=1
-      if page_count > 0
+      if page_count > 0 && resp['next_page_token']
+        sleep(2)
         get_coffee_shop_pages(location, page_count, resp['next_page_token'] )
       end
     end
