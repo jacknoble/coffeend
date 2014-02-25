@@ -3,6 +3,10 @@ class Hangout < ActiveRecord::Base
 
   belongs_to :user
 
+  def duration=(dur)
+    self.end = self.start + dur.to_i.hours
+  end
+
   def self.find_by_location(rad, location)
     lat = location[:lat]
     lng = location[:lng]

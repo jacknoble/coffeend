@@ -52,8 +52,9 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	},
 
 	addLocationData: function(event, suggestion, dataset){
-		$('#hangout_lat').val(suggestion.location.lat)
-		$('#hangout_lng').val(suggestion.location.lng)
+		debugger
+		$('#hangout_lat').val(suggestion.location.location.lat)
+		$('#hangout_lng').val(suggestion.location.location.lng)
 	},
 
 	createHangout: function(event){
