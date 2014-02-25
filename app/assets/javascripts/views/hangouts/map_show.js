@@ -27,7 +27,6 @@ Coffeend.Views.MapShow = Backbone.View.extend({
 			width: "100%"
 		});
     Coffeend.hangouts.each(function (hangout) {
-			console.log(hangout)
       map.addMarker({
         lat: hangout.get('lat'),
         lng: hangout.get('lng'),

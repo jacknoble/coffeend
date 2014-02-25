@@ -4,8 +4,8 @@ Coffeend::Application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :only => [:new, :create]
   namespace :api, :defaults => { :format => :json } do
-    resource :user, :only => [:show, :update]
-    get 'users/:id' => 'users#show_other_user'
+    get 'user' => 'users#load'
+    resources :users, :only => [:show, :update]
     resources :hangouts, :only => [:create, :index, :destroy, :update]
     resources :coffee_shops, :only => [:index]
   end

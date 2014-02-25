@@ -64,7 +64,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		hangout.save({}, {
 			success: function(){
 				Coffeend.hangouts.add(hangout);
-				Backbone.history.navigate('#/', {trigger: true})
 			}
 		})
 	}

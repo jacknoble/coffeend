@@ -20,9 +20,9 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	},
 
   editProfile: function(){
-    var editUser = Coffeend.Views.EditUser({model: Coffeend.user})
+    var editUser = new Coffeend.Views.EditUser({model: Coffeend.user})
     this.$bottomEl.html(editUser.render().$el)
-  }
+  },
 
   showHangout: function (id) {
     var hangoutShow = new Coffeend.Views.HangoutShow({
