@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224220413) do
+ActiveRecord::Schema.define(version: 20140227212818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,18 +48,21 @@ ActiveRecord::Schema.define(version: 20140224220413) do
   add_index "hangouts", ["user_id"], name: "index_hangouts_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",           null: false
-    t.string   "first_name",      null: false
+    t.string   "email",              null: false
+    t.string   "first_name",         null: false
     t.string   "last_name"
     t.string   "job"
     t.integer  "age"
     t.string   "sex"
     t.text     "self_summary"
-    t.string   "photo"
     t.string   "session_token"
-    t.string   "password_digest", null: false
+    t.string   "password_digest",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

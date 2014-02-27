@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
   attr_reader :password
   attr_accessor :nearby_hangouts
 
+
+  has_attached_file :photo, :styles => {
+    :big => "400x400>",
+    :small => "40x40>",
+  }, :default_url => "/assets/portrait.jpg"
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end

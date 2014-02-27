@@ -3,6 +3,18 @@ Coffeend.Views.EditUser = Backbone.View.extend({
 	render: function(){
     var renderedContent = this.template({ user: this.model });
     this.$el.html(renderedContent);
+    this.$el.find('.dropzone').dropzone({
+			dictDefaultMessage: '',
+			paramName: "user[photo]",
+			method: "put",
+			sending: function(file, xhr, formData) {
+				xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+			},
+
+			success: function(file, resp) {
+				that.model.set({photo: resp.photo_url})
+			}
+		})
     return this;
 	},
 
