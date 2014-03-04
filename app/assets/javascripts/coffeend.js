@@ -14,7 +14,6 @@ window.Coffeend = {
   parseAndStart: function (data) {
 		var $root = $('#content');
     var $bottom = $('#bottom');
-    debugger
     Coffeend.hangouts = new Coffeend.Collections.Hangouts(
       data['nearby_hangouts']
     );

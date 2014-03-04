@@ -35,6 +35,7 @@
 Check <a href="#/users/<%= user.get('id') %>"> 
   <%= user.escape('first_name') %>
 </a> out!
+<img src="<%=user.get('small_photo')%>">
 <strong><p style="color: <%= color %>"><%= status %></p></strong>
 <% if (Coffeend.user.get('id') === hangout.get('user_id')) { %>
   <button class="btn btn-default">Cancel Event</button>
