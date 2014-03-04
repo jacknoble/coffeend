@@ -11,6 +11,10 @@ class Api::UsersController < ApplicationController
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
+    @nearby_hangouts.each do |hangout|
+      @users << hangout.user
+    end
+    
     render "api/users/load"
   end
 
