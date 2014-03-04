@@ -23,7 +23,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     if @user
       @user.update_attributes(params[:user].permit!)
       render :json => @user

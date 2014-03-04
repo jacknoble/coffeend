@@ -3,58 +3,29 @@ function handle_files(files) {
   var file = files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
-    // you need to send e.target.result in your $.ajax request
+  	$.ajax("api/user")
   }
   reader.readAsDataURL(file);
 }
-$.fn.editable.defaults.mode = 'inline';
 </script>
-<form action="api/users" method="post">
-<input type="file" name="user[photo]" multiple onchange="handle_files(this.files)">
+<input type="file" data-name="user[photo]" multiple onchange="handle_files(this.files)">
 <label for="user_email">Email</label>
-<a href="#" id="user_email" data-type="text" data-title="Email: " data-pk="<%=Coffeend.user.id%>" class="editable editable-click" style="display: inline;"><%=user.escape('email')%></a>
-<label for="user_first_name">First Name</label>
-<input
-	type="text"
-	id="user_first_name"
-	name="user[first_name]" 
-	value="<%= user.escape('first_name') %>"
->
-<label for="user_last_name">Last Name</label>
-<input
-	type="text"
-	id="user_last_name"
-	name="user[last_name]"
-	value="<%= user.escape('job') %>"
->
+<a href="#" id="user_email" data-type="text" data-name="user[email]" class="editable editable-click" style="display: inline;">Email <%=user.escape('email')%></a>
+
+<label for="user_first_data-name">First Name</label>
+<a href="#" id="user_first_data-name" data-name="user[first_data-name]" data-type="text"class="editable editable-click" style="display: inline;"><%=user.escape('first_name')%></a>
+
+<label for="user_last_data-name">Last Name</label>
+<a href="#" id="user_last_data-name" data-name="user[last_data-name]" data-type="text" class="editable editable-click" style="display: inline;"><%=user.escape('last_name')%></a>
+
+<label for="user_job">Job</label>
+<a href="#" id="user_job" data-name="user[job]" data-type="text" class="editable editable-click" style="display: inline;"><%=user.escape('job')%></a>
+
 <label for="user_age">Age</label>
-<input
-	type="number"
-	id="user_age"
-	name="user[age]"
-	value="<%= user.escape('age') %>"
->
-<%userSex = user.escape('sex')%>
-<label for="user_sex">Gender</label>
-<select id="user_sex" name="user[sex]">
-	<option <%=(userSex === "M") ? "selected" : null%> value="M">M</option>
-	<option <%=(userSex === "W") ? "selected" : null%> value="M">W</option>
-</select>
-<textarea name=user[self_summary]><%= user.escape('self_summary') %></textarea>
-<input type="submit" value="Update Profile">
-</form>
+<a href="#" id="user_age" data-name="user[age]" data-type="number" class="editable editable-click" style="display: inline;"><%=user.escape('age')%></a>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-	console.log("editable running")
-  $('.editable').editable({
-  	success: function(resp){
-  		Coffeend.user.set(resp)
-  	}
-  });
-});
+<label for="user_sex">Sex</label>
+<a href="#" id="user_age" data-name="user[sex]" data-source="[{value: 1, text: 'Male'},{value: 2, text: 'Female'}]" data-type="select" class="editable editable-click" style="display: inline;"><%=user.escape('sex')%></a>
 
-</script>
-
-
-
+<label for="user_self_summary">Self Summary</label>
+<a href="#" id="user_self_summary" data-name="user[self_summary]" data-type="textarea" class="editable editable-click" style="display: inline;"><%=user.escape('self_summary')%></a>
