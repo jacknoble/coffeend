@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :photo, :styles => {
-    :medium => "100x100>",
+    :medium => "200x200>",
     :small => "40x40>",
   }, :default_url => "/assets/portrait.jpg"
 

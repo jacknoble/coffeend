@@ -12,7 +12,8 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	events: {
 		"submit":"createHangout",
 		"typeahead:selected":"addLocationData",
-		"typeahead:autocompleted":"addLocationData"
+		"typeahead:autocompleted":"addLocationData",
+		// "typeahead:cursorchanged":"changePhoto"
 	},
 
 	addAutoComplete: function(){
@@ -28,7 +29,14 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 						return {
 							name: jshop.name,
 							vicinity: jshop.vicinity,
-							location: jshop.geometry
+							location: jshop.geometry,
+							photo: function(jshop){
+								if (typeof jshop.photos != 'undefined'){
+									return jshop.photos[0].photo_reference
+								} else {
+									return null
+								}
+							}(jshop)
 						};
 					});
 					console.log(cafes)
@@ -56,6 +64,19 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		$('#hangout_lat').val(suggestion.location.location.lat)
 		$('#hangout_lng').val(suggestion.location.location.lng)
 	},
+
+	// changePhoto: function(event, suggestion, dataset){
+	// 	$.ajax({
+	// 		method: "GET",
+	// 		url: "api/coffee_shops/photos",
+	// 		data: {
+	// 			photo_reference: suggestion.photo,
+	// 		},
+	// 		success: function(resp){
+	// 			$($('#shop_photo')).src(resp)
+	// 		}
+	// 	})
+	// },
 
 	createHangout: function(event){
 		event.preventDefault();

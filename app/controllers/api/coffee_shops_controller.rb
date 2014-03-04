@@ -4,4 +4,10 @@ class Api::CoffeeShopsController < ApplicationController
     @shops = $redis.lrange(location, 0, -1)
     render :json => @shops
   end
+
+  def photos
+  	photo_uri = CoffeeShop.photo_uri(params[:photo_reference])
+  	p photo_uri
+  	render RestClient.get(photo_uri)
+  end
 end

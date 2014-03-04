@@ -1,4 +1,5 @@
 <h3>New Coffee Date</h3>
+<div class="col-xs-5">
 <form action="api/hangouts/" method="post">
 	<label for="hangout_location_name">Location:</label>
 	<input type="text" name="hangout[location_name]" id="hangout_location_name">
@@ -22,6 +23,10 @@
 	<input type="hidden" id="hangout_lng" value="nil" name="hangout[lng]">
 	<input class="btn btn-primary" style="background: brown" type="submit" id="submit" value="Create Coffee Date">
 </form>
+</div>
+<div class="col-xs-5">
+<img id="shop_photo" src="">
+</div>
 
   <script type="text/javascript">
     $(function() {

@@ -18,6 +18,20 @@ module Api::CoffeeShopsHelper
       ).to_s
     end
 
+    def self.photo_uri(reference)
+      Addressable::URI.new(
+      :scheme => "https",
+      :host => "maps.googleapis.com",
+      :path => "maps/api/place/photo",
+      :query_values => {
+        :sensor => "false",
+        :key => ENV["GOOGLE_MAPS_KEY"],
+        :photoreference => reference,
+        :maxwidth => 500
+      }
+      ).to_s
+    end
+
     def self.preload_local_coffee_shops(lat, lng)
       location = [lat,lng].join(',')
       get_coffee_shop_pages(location, 10, nil)
