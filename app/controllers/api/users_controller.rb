@@ -26,7 +26,7 @@ class Api::UsersController < ApplicationController
     @user = User.find(current_user.id)
     if @user
       @user.update_attributes(params[:user].permit!)
-      render :json => @user
+      render "api/users/show"
     else
       render :json => "User not found", status => :unprocessable_entity
     end
