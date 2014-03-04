@@ -49,4 +49,8 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(pt_password)
   end
 
+  def as_json(options={})
+    super(:except => :password_digest)
+  end
+
 end
