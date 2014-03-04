@@ -9,7 +9,10 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
+ *= require bootstrap-editable
  *= require_tree .
  */
 @import "bootstrap.css.scss";
+@import "bootstrap-editable.css.scss";
 @import "bootstrap-datetimepicker.min.css";

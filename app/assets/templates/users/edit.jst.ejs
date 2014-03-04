@@ -1,26 +1,33 @@
+<script>
+function handle_files(files) {
+  var file = files[0];
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    // you need to send e.target.result in your $.ajax request
+  }
+  reader.readAsDataURL(file);
+}
+$.fn.editable.defaults.mode = 'inline';
+</script>
 <form action="api/users" method="post">
-<label for="user_email">Email:</label>
-<input
-	type="text"
-	id="user_email"
-	name="user[email]" 
-	value="<%= user.escape('email') %>"
->
-<label for="user_first_name">First Name:</label>
+<input type="file" name="user[photo]" multiple onchange="handle_files(this.files)">
+<label for="user_email">Email</label>
+<a href="#" id="user_email" data-type="text" data-title="Email: " data-pk="<%=Coffeend.user.id%>" class="editable editable-click" style="display: inline;"><%=user.escape('email')%></a>
+<label for="user_first_name">First Name</label>
 <input
 	type="text"
 	id="user_first_name"
 	name="user[first_name]" 
 	value="<%= user.escape('first_name') %>"
 >
-<label for="user_last_name">Last Name:</label>
+<label for="user_last_name">Last Name</label>
 <input
 	type="text"
 	id="user_last_name"
 	name="user[last_name]"
 	value="<%= user.escape('job') %>"
 >
-<label for="user_age">Age:</label>
+<label for="user_age">Age</label>
 <input
 	type="number"
 	id="user_age"
@@ -28,7 +35,7 @@
 	value="<%= user.escape('age') %>"
 >
 <%userSex = user.escape('sex')%>
-<label for="user_sex">Sex:</label>
+<label for="user_sex">Gender</label>
 <select id="user_sex" name="user[sex]">
 	<option <%=(userSex === "M") ? "selected" : null%> value="M">M</option>
 	<option <%=(userSex === "W") ? "selected" : null%> value="M">W</option>
@@ -36,6 +43,18 @@
 <textarea name=user[self_summary]><%= user.escape('self_summary') %></textarea>
 <input type="submit" value="Update Profile">
 </form>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+	console.log("editable running")
+  $('.editable').editable({
+  	success: function(resp){
+  		Coffeend.user.set(resp)
+  	}
+  });
+});
+
+</script>
 
 
 

@@ -21,6 +21,7 @@
 //= require bootstrap-datetimepicker.min.js
 //= require jquery.serializeJSON
 //= require typeahead.js
+//= require bootstrap-editable
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
