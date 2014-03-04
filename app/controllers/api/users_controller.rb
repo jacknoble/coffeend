@@ -11,15 +11,7 @@ class Api::UsersController < ApplicationController
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
-    @nearby_hangouts.each do |hangout|
-      @users << hangout.user
-    end
-    @data = {
-      :user => @user,
-      :nearby_hangouts => @nearby_hangouts,
-      :users => @users
-    }
-    render :json => @data
+    render "api/users/load"
   end
 
   def update

@@ -33,7 +33,7 @@
   <strong>When: </strong>
 <%= days[start.getDay()] %> <%= start_time %> - <%= end_time%></p>
 Check <a href="#/users/<%= user.get('id') %>"> 
-  <%= user.get('first_name') %>
+  <%= user.escape('first_name') %>
 </a> out!
 <strong><p style="color: <%= color %>"><%= status %></p></strong>
 <% if (Coffeend.user.get('id') === hangout.get('user_id')) { %>

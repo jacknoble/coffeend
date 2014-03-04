@@ -1,0 +1,1 @@
+json.(hangout, :id, :user_id, :start, :end, :location_name, :lat, :lng, :created_at, :updated_at)

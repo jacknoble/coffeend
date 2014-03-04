@@ -36,7 +36,7 @@ Coffeend.Views.MapShow = Backbone.View.extend({
           content: JST['hangouts/hangout_info']({ hangout: hangout })
         },
         click: function(e) {
-          Backbone.history.navigate('#/hangouts/' + hangout.get('id'));
+          Backbone.history.navigate('#/hangouts/' + hangout.id);
         }
       });
 		})
