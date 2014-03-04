@@ -1,4 +1,7 @@
 Coffeend.Views.EditUser = Backbone.View.extend({
+	initialize: function(){
+		this.listenTo(Coffeend.user, 'change', this.render)
+	},
 	template: JST['users/edit'],
 	render: function(){
     var renderedContent = this.template({ user: this.model });
@@ -25,18 +28,5 @@ Coffeend.Views.EditUser = Backbone.View.extend({
 	  	}
 	  });
 	},
-
-	events:{
-		"submit":"updateUser"
-	},
-
-	updateUser: function(){
-		event.preventDefault();
-		debugger
-		var userData = $(event.target).serializeJSON();
-		console.log(Coffeend.user.id)
-		Coffeend.user.save(userData)
-	}
-
 
 })

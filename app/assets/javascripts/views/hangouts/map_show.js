@@ -1,6 +1,7 @@
 Coffeend.Views.MapShow = Backbone.View.extend({
 	initialize: function(){
 		this.listenTo(this.collection, 'add remove', this.renderMap)
+		this.listenTo(Coffeend.user, 'change', this.renderMap)
 	},
 	template: JST['hangouts/map_show'],
 	attributes:{
