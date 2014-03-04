@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
     :small => "40x40>",
   }, :default_url => "/assets/portrait.jpg"
 
+  validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
+
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
   end

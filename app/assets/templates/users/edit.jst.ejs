@@ -6,7 +6,7 @@ function handle_files(files) {
   	$.ajax({
   		url: "api/user",
   		type: "PUT",
-  		data: e.target.result,
+  		data: {user: {photo: e.target.result}},
   		success: function(resp){
   			Coffeend.user.set(resp)
   		}
