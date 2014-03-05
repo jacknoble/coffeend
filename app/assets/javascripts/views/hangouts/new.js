@@ -39,7 +39,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 							}(jshop)
 						};
 					});
-					console.log(cafes)
 					return cafes
 		    }
 		  }
