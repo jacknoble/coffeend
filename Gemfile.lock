@@ -46,6 +46,8 @@ GEM
       jquery-rails
       railties
     bcrypt-ruby (3.1.2)
+    bootstrap3-datetimepicker-rails (2.1.30)
+      momentjs-rails (~> 2.5.0)
     builder (3.1.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -97,6 +99,8 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
+    momentjs-rails (2.5.1)
+      railties (>= 3.1)
     multi_json (1.8.4)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
@@ -185,6 +189,7 @@ DEPENDENCIES
   aws-sdk
   backbone-on-rails
   bcrypt-ruby
+  bootstrap3-datetimepicker-rails (~> 2.1.30)
   debugger
   delayed_job_active_record
   ejs
@@ -192,6 +197,7 @@ DEPENDENCIES
   foreman
   jbuilder
   jquery-rails
+  momentjs-rails (~> 2.5.0)
   paperclip
   pg
   rails (= 4.0.2)

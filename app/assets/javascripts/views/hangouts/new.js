@@ -6,6 +6,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		var that = this;
 		setTimeout( function() {
 		  that.addAutoComplete();
+		  $('#dtpicker1').datetimepicker();
 		}, 0);
 		return this
 	},

@@ -15,6 +15,8 @@ gem 'delayed_job_active_record'
 gem 'redis-rails'
 gem 'foreman'
 gem 'jbuilder'
+gem 'momentjs-rails', '~> 2.5.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 
 
 gem 'sass-rails', '~> 4.0.0'

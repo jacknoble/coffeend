@@ -17,8 +17,9 @@
 //= require backbone
 //= require gmaps
 //= require coffeend
+//= require moment
+//= require bootstrap-datetimepicker
 //= require handlebars
-//= require bootstrap-datetimepicker.min.js
 //= require jquery.serializeJSON
 //= require typeahead.js
 //= require bootstrap-editable
