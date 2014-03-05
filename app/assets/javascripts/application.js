@@ -12,12 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= requre bootstrap
 //= require underscore
 //= require backbone
 //= require gmaps
 //= require coffeend
 //= require moment
+//= require bootstrap
 //= require bootstrap-datetimepicker
 //= require handlebars
 //= require jquery.serializeJSON
