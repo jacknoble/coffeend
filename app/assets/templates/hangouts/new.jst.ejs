@@ -1,16 +1,14 @@
-<h3>New Coffee Date</h3>
+<h3 class="coffeend-heading">New Coffee Date</h3>
 <div class="col-xs-5">
 <form action="api/hangouts/" method="post">
 
   <div class="form-group">
-  <label for="hangout_location_name">Coffee Shop</label>
-  <input class="form-control" type="text" name="hangout[location_name]" id="hangout_location_name">
+  <input class="form-control" placeholder="Coffee Shop" type="text" name="hangout[location_name]" id="hangout_location_name">
   </div>
 
   <div class="form-group">
     <div class='input-group date' id='dtpicker1'>
-        <label for="hangout_start">Start time:</label>
-        <input type='text' class="form-control"name="hangout[start]"
+        <input type='text' placeholder="Date and start time" class="form-control"name="hangout[start]"
     id="hangout_start" />
         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
         </span>
@@ -18,8 +16,7 @@
   </div>
 
   <div class="form-group">
-    <label for="hangout_duration">Duration:</label>
-    <input type="number" class="form-control" id="hangout_duration" style="width: 50px;" name="hangout[duration]" min="1" max="8">
+    <input type="number" placeholder="Duration" class="form-control" id="hangout_duration" style="width: 100px;" name="hangout[duration]" min="1" max="8">
   </div>
 
   <div class="form-group">
