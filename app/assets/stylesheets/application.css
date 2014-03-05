@@ -13,6 +13,6 @@
  *= require bootstrap-editable
  *= require_tree .
  */
-@import "bootstrap.css.scss";
+@import "bootstrap.css";
 @import "bootstrap-editable.css.scss";
 @import "bootstrap-datetimepicker.min.css";
