@@ -38,12 +38,16 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	},
 
   showOtherUser: function (id) {
-    var otherUser = Coffeend.users.get(id);
-    if (otherUser) {
-      var showUser = new Coffeend.Views.UserShow({ model: otherUser });
-      this.$bottomEl.html(showUser.render().$el);
+    if (id == Coffeend.user.id){
+      this.navigate('profile', true)
     } else {
-      console.log('user not found');
+      var otherUser = Coffeend.users.get(id);
+      if (otherUser) {
+        var showUser = new Coffeend.Views.UserShow({ model: otherUser });
+        this.$bottomEl.html(showUser.render().$el);
+      } else {
+        console.log('user not found');
+      }
     }
   },
 
