@@ -49,16 +49,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		$('#hangout_location_name').typeahead(null, {
 	    displayKey: 'name',
 	    source: shops.ttAdapter(),
-      open: function(event, ui){
-          var $input = $(event.target),
-              $results = $input.autocomplete("widget"),
-              top = $results.position().top,
-              height = $results.height(),
-              inputHeight = $input.height(),
-              newTop = top - height - inputHeight;
-
-          $results.css("top", newTop + "px");
-      },
 	    highlight: true,
 	    templates: {
 		    suggestion: Handlebars.compile([
@@ -70,7 +60,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	},
 
 	addLocationData: function(event, suggestion, dataset){
-		debugger
 		$('#hangout_lat').val(suggestion.location.location.lat)
 		$('#hangout_lng').val(suggestion.location.location.lng)
 	},
@@ -96,6 +85,8 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		hangout.save({}, {
 			success: function(){
 				Coffeend.hangouts.add(hangout);
+				var id = hangout.id
+				Coffeend.router.navigate("hangouts/" + id, true)
 			}
 		})
 	}
