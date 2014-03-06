@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   database: coffeend_dev
   host: localhost
-  username: coffeend
-  password: coffeend
+  username: ENV["LOCALDB_UN"]
+  password: ENV["LOCALDB_PW"]
   pool: 5
   timeout: 5000
