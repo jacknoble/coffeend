@@ -49,6 +49,16 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		$('#hangout_location_name').typeahead(null, {
 	    displayKey: 'name',
 	    source: shops.ttAdapter(),
+      open: function(event, ui){
+          var $input = $(event.target),
+              $results = $input.autocomplete("widget"),
+              top = $results.position().top,
+              height = $results.height(),
+              inputHeight = $input.height(),
+              newTop = top - height - inputHeight;
+
+          $results.css("top", newTop + "px");
+      },
 	    highlight: true,
 	    templates: {
 		    suggestion: Handlebars.compile([
