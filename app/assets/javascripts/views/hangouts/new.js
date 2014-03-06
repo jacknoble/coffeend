@@ -52,8 +52,8 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	    highlight: true,
 	    templates: {
 		    suggestion: Handlebars.compile([
-		      '<p class="tt-name">{{name}}</p>',
-		      '<p class="tt-vac">{{vicinity}}</p>'
+		      '<p class="tt-name cof-text">{{name}}</p>',
+		      '<p class="tt-vac" style="color: #3D1F00;">{{vicinity}}</p>'
 		    ].join(''))
   		}
 		})
