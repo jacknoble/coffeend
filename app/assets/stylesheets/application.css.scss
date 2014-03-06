@@ -15,9 +15,22 @@
 @import "bootstrap-editable.css.scss";
 @import "bootstrap-datetimepicker";
 
+body {
+  overflow-y: scroll;
+}
+
 .coffeend-heading {
 	font-family: SketchRockwell;
+  margin-top: 0px;
 	color: #8A2E00;
+}
+
+.hangout-block {
+  margin-bottom: 20px;
+}
+
+.prof-medium {
+  border-radius: 5px;
 }
 
 .btn-coffeend {
@@ -39,8 +52,11 @@ a.editable-click {
 }
 
 .cof-text {
+  text-shadow: 1px 1px 5px #a97c31;
+  -webkit-font-smoothing: antialiased;
 	color: #3D1F00;
   font-weight: 900;
+  font-family: 'Esteban', sans-serif;
 	display: inline;
 }
 
