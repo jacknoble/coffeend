@@ -16,12 +16,13 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	},
 
 	root: function(){
-    this.$bottomEl.html('<div style="margin-left:30px">FUCK YEAH! MAPS BITCH</div>');
+    var rootView = new Coffeend.Views.Root();
+    this.$bottomEl.html(rootView.render().$el);
 	},
 
   editProfile: function(){
-    var editUser = new Coffeend.Views.EditUser({model: Coffeend.user})
-    this.$bottomEl.html(editUser.render().$el)
+    var editUser = new Coffeend.Views.EditUser({model: Coffeend.user});
+    this.$bottomEl.html(editUser.render().$el);
   },
 
   showHangout: function (id) {
