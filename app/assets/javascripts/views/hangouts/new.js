@@ -73,6 +73,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		debugger
 		$('#hangout_lat').val(suggestion.location.location.lat)
 		$('#hangout_lng').val(suggestion.location.location.lng)
+		$('#hangout_location_name').val(suggestion.name)
 	},
 
 	// changePhoto: function(event, suggestion, dataset){
@@ -89,9 +90,11 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	// },
 
 	createHangout: function(event){
+		debugger
 		event.preventDefault();
 		var hangData = $(event.target).serializeJSON();
 		var hangout = new Coffeend.Models.Hangout(hangData);
+
 		hangout.save({}, {
 			success: function(){
 				Coffeend.hangouts.add(hangout);
