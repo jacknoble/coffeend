@@ -19,12 +19,12 @@ function handle_files(files) {
 
 <div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
   <div class="row">
-  <div class="col-xs-4">
+  <div class="col-xs-3">
     <img src="<%=user.escape('medium_photo')%>">
     <input type="file" name="user[photo]" multiple onchange="handle_files(this.files)"> 
   </div>
   
-  <div class="col-xs-6" style="margin-left: -150px;">
+  <div class="col-xs-6">
 
   <a href="#" id="user_first_name" data-emptytext="First Name" data-name="user[first_name]" data-type="text"class="editable editable-click" style="display: inline; font-size: 32px;"><%=user.escape('first_name')%></a> 
 
