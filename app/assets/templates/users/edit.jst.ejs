@@ -16,25 +16,34 @@ function handle_files(files) {
   reader.readAsDataURL(file);
 }
 </script>
-<img src="<%=user.escape('medium_photo')%>">
-<input type="file" name="user[photo]" multiple onchange="handle_files(this.files)">
-<label for="user_email">Email</label>
-<a href="#" id="user_email" data-type="text" data-name="user[email]" class="editable editable-click" style="display: inline;">Email <%=user.escape('email')%></a>
 
-<label for="user_first_name">First Name</label>
-<a href="#" id="user_first_name" data-name="user[first_name]" data-type="text"class="editable editable-click" style="display: inline;"><%=user.escape('first_name')%></a>
+<div class="col-xs-10 col-xs-offset-1" style="margin-top: 10px;">
+  <div class="row">
+  <div class="col-xs-4">
+    <img src="<%=user.escape('medium_photo')%>">
+    <input type="file" name="user[photo]" multiple onchange="handle_files(this.files)"> 
+  </div>
+  
+  <div class="col-xs-6" style="margin-left: -150px;">
 
-<label for="user_last_name">Last Name</label>
-<a href="#" id="user_last_name" data-name="user[last_name]" data-type="text" class="editable editable-click" style="display: inline;"><%=user.escape('last_name')%></a>
+  <a href="#" id="user_first_name" data-emptytext="First Name" data-name="user[first_name]" data-type="text"class="editable editable-click" style="display: inline; font-size: 32px;"><%=user.escape('first_name')%></a> 
 
-<label for="user_job">Job</label>
-<a href="#" id="user_job" data-name="user[job]" data-type="text" class="editable editable-click" style="display: inline;"><%=user.escape('job')%></a>
+  <a href="#" id="user_last_name" data-emptytext="Last Name" data-name="user[last_name]" data-type="text" class="editable editable-click" style="display: inline; font-size: 32px;"><%=user.escape('last_name')%></a>
 
-<label for="user_age">Age</label>
-<a href="#" id="user_age" data-name="user[age]" data-type="number" class="editable editable-click" style="display: inline;"><%=user.escape('age')%></a>
+  <br>
 
-<label for="user_sex">Sex</label>
-<a href="#" id="user_age" data-name="user[sex]" data-source="[{value: 1, text: 'Male'},{value: 2, text: 'Female'}]" data-type="select" class="editable editable-click" style="display: inline;"><%=user.escape('sex')%></a>
+  <a href="#" id="user_job" data-emptytext="Job" data-name="user[job]" data-type="text" class="editable editable-click" style="display: inline;"><%=user.escape('job')%></a>,
 
-<label for="user_self_summary">Self Summary</label>
-<a href="#" id="user_self_summary" data-name="user[self_summary]" data-type="textarea" class="editable editable-click" style="display: inline;"><%=user.escape('self_summary')%></a>
+  <a href="#" id="user_age" data-emptytext="Age" data-name="user[age]" data-type="number" class="editable editable-click" style="display: inline;"><%=user.escape('age')%></a>,
+
+  <a href="#" id="user_age" data-emptytext="Gender" data-name="user[sex]" data-source="[{value: 1, text: 'Male'},{value: 2, text: 'Female'}]" data-type="select" class="editable editable-click" style="display: inline;"><%=user.escape('sex')%></a>
+  <br>
+  <a href="#" id="user_email" placeholder="Email" data-emptytext="Email" data-type="text" data-name="user[email]" class="editable editable-click" style="display: inline;"><%=user.escape('email')%></a>
+
+  <br>
+
+  <a href="#" id="user_self_summary" data-emptytext="Self Summary" data-name="user[self_summary]" data-type="textarea" class="editable editable-click" style="display: inline;"><%=user.escape('self_summary')%></a>
+    
+  </div>  
+  </div>
+</div>
