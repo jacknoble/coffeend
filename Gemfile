@@ -18,6 +18,8 @@ gem 'jbuilder'
 gem 'momentjs-rails', '~> 2.5.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 
+gem 'rails_12factor', group: :production
+
 
 gem 'sass-rails', '~> 4.0.0'
 # Use SCSS for stylesheets
