@@ -78,10 +78,6 @@ Coffeend::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   config.assets.initialize_on_precompile = false
-  config.cache_classes = true
-  config.serve_static_assets = true
-  config.assets.compile = true
-  config.assets.digest = true
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
