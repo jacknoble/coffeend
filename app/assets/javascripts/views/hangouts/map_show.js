@@ -1,7 +1,7 @@
 Coffeend.Views.MapShow = Backbone.View.extend({
 	initialize: function(){
-		this.listenTo(this.collection, 'add remove', this.renderMap)
-		this.listenTo(Coffeend.user, 'change', this.renderMap)
+		this.listenTo(this.collection, 'add remove', this.renderMarkers)
+		this.listenTo(Coffeend.user, 'change', this.renderMarkers)
 	},
 	template: JST['hangouts/map_show'],
 	attributes:{
@@ -18,16 +18,10 @@ Coffeend.Views.MapShow = Backbone.View.extend({
 		return this;
 	},
 
-	renderMap: function() {
-		var map = new GMaps({
-  		div: '#map',
-  		lat: Coffeend.lat,
-  		lng: Coffeend.lng,
-			height: "400px",
-			width: "100%"
-		});
-    Coffeend.hangouts.each(function (hangout) {
-      map.addMarker({
+	renderMarkers: function(){
+		Coffeend.map.removeMarkers()
+		Coffeend.hangouts.each(function (hangout) {
+      Coffeend.map.addMarker({
         lat: hangout.get('lat'),
         lng: hangout.get('lng'),
         title: hangout.get('location_name'),
@@ -40,6 +34,18 @@ Coffeend.Views.MapShow = Backbone.View.extend({
         }
       });
 		})
+	},
+
+	renderMap: function() {
+		var map = Coffeend.map = new GMaps({
+  		div: '#map',
+  		lat: Coffeend.lat,
+  		lng: Coffeend.lng,
+			height: "400px",
+			width: "100%",
+			zoom: 13,
+		});
+		this.renderMarkers()
 	},
 
 });

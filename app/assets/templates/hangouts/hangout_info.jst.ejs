@@ -32,7 +32,7 @@
 <p class="start-time">
   <strong>When: </strong>
 <%= days[start.getDay()] %> <%= start_time %> - <%= end_time%></p>
-Check <a href="#/users/<%= user.get('id') %>"> 
+Check <a href="#/users/<%= user.id %>"> 
   <%= user.escape('first_name') %>
 </a> out!
 <img src="<%=user.get('small_photo')%>">
