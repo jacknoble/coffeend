@@ -1,5 +1,6 @@
 class Api::UsersController < ApplicationController
   def load
+    begin
     params.permit!
     @user = current_user
     @users = []
@@ -16,6 +17,10 @@ class Api::UsersController < ApplicationController
     end
     
     render "api/users/load"
+
+    rescue Exception => e
+      flash.now[:errors] = e.message, e.backtrace
+    end
   end
 
   def update
