@@ -1,1 +1,3 @@
-$redis = Redis.new(:host => 'coffeend.herokuapp.com', :port => 6379)
+uri = URI.parse(ENV["REDISTOGO_URL"])
+REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
+Resque.redis = REDIS

@@ -9,6 +9,7 @@ class Api::UsersController < ApplicationController
     if $redis.lrange(CoffeeShop.trim_location(location), 0, -1).length < 10
       CoffeeShop.delay.preload_local_coffee_shops(@lat, @lng)
     end
+    puts "getting here after $redis"
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
