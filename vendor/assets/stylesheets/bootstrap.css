@@ -5789,7 +5789,7 @@ button.close {
 
 @font-face {
   font-family: "SketchRockwell";
-  src:  url('SketchRockwell-Bold.ttf');
+  src:  font-url('SketchRockwell-Bold.ttf');
 }
 .navbar-default {
   background-color: #3d2308;
