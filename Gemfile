@@ -20,6 +20,8 @@ gem 'bootstrap3-datetimepicker-rails', '~> 2.1.30'
 
 gem 'rails_12factor', group: :production
 
+gem 'resque'
+
 
 gem 'sass-rails', '~> 4.0.0'
 # Use SCSS for stylesheets
