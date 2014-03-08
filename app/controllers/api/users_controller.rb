@@ -6,10 +6,9 @@ class Api::UsersController < ApplicationController
     @users = []
     @lat, @lng = params[:lat].to_f, params[:lng].to_f
     location = [@lat, @lng].join(',')
-    if $redis.lrange(CoffeeShop.trim_location(location), 0, -1).length < 10
-      CoffeeShop.delay.preload_local_coffee_shops(@lat, @lng)
-    end
-    puts "getting here after $redis"
+    # if $redis.lrange(CoffeeShop.trim_location(location), 0, -1).length < 10
+    #   CoffeeShop.delay.preload_local_coffee_shops(@lat, @lng)
+    # end
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
