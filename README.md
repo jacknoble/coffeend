@@ -1,8 +1,9 @@
-coffieend
+Coffeend
 =========
 
 ###API's
 + Google Maps JavaScript API v3
++ Google Places API
 
 ###Models
 + ActiveRecord
@@ -37,5 +38,3 @@ coffieend
         + `requester_id`
         + `requested_id`
 
-+ Backbone
-    + `
