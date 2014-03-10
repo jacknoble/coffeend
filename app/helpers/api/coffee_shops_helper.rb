@@ -43,10 +43,11 @@ module Api::CoffeeShopsHelper
     end
 
     def self.get_coffee_shop_pages(location, page_count, page_token)
+      p "hitting api"
       uri = self.google_coffee_uri(location, page_token).gsub!(/%2C/, ',')
       resp = JSON.parse(RestClient.get(uri))
       results = resp["results"].map(&:to_json)
-      $redis.rpush(trim_location(location), results) unless results.empty?
+      $REDIS.rpush(trim_location(location), results) unless results.empty?
       page_count -=1
       if page_count > 0 && resp['next_page_token']
         sleep(1.2)

@@ -1,26 +1,26 @@
 class Api::UsersController < ApplicationController
   def load
-    begin
     params.permit!
     @user = current_user
     @users = []
     @lat, @lng = params[:lat].to_f, params[:lng].to_f
     location = [@lat, @lng].join(',')
-    # if $redis.lrange(CoffeeShop.trim_location(location), 0, -1).length < 10
-    #   CoffeeShop.delay.preload_local_coffee_shops(@lat, @lng)
-    # end
+    t = Time.now
+    if $REDIS.lrange(CoffeeShop.trim_location(location), 0, -1).length < 10
+      Thread.new do 
+        CoffeeShop.preload_local_coffee_shops(@lat, @lng)
+      end
+    end
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
+    p Time.now - t
+    #this needs to be unique users. Use a join table for this?
     @nearby_hangouts.each do |hangout|
       @users << hangout.user
     end
     
     render "api/users/load"
-
-    rescue Exception => e
-      flash.now[:errors] = e.message, e.backtrace
-    end
   end
 
   def update

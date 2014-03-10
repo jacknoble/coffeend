@@ -40,6 +40,7 @@ window.Coffeend = {
 
 	initialize: function(){
     var that = this;
+    // add a modal or alert explaining why we are asking for geolocation?
 		this.getLocation(function (position) {
 			Coffeend.lat = position.coords.latitude;
 			Coffeend.lng = position.coords.longitude;
