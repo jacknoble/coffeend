@@ -4,6 +4,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		var renderedContent = this.template()
 		this.$el.html(renderedContent)
 		var that = this;
+		Coffeend.map.removeMarkers()
 		setTimeout( function() {
 		  that.addAutoComplete();
 		  $('#dtpicker1').datetimepicker();
@@ -14,7 +15,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		"submit":"createHangout",
 		"typeahead:selected":"addLocationData",
 		"typeahead:autocompleted":"addLocationData",
-		// "typeahead:cursorchanged":"changePhoto"
 	},
 
 	addAutoComplete: function(){
