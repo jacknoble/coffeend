@@ -64,12 +64,6 @@ GEM
       debugger-ruby_core_source (~> 1.3.2)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.3.2)
-    delayed_job (4.0.0)
-      activesupport (>= 3.0, < 4.1)
-    delayed_job_active_record (4.0.0)
-      activerecord (>= 3.0, < 4.1)
-      delayed_job (>= 3.0, < 4.1)
-    dotenv (0.10.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -81,9 +75,6 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
-    foreman (0.63.0)
-      dotenv (>= 0.7)
-      thor (>= 0.13.6)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -213,10 +204,8 @@ DEPENDENCIES
   bcrypt-ruby
   bootstrap3-datetimepicker-rails (~> 2.1.30)
   debugger
-  delayed_job_active_record
   ejs
   figaro
-  foreman
   jbuilder
   jquery-rails
   momentjs-rails (~> 2.5.0)
