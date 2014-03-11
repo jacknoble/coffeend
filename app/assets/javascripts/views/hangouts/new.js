@@ -18,6 +18,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 	},
 
 	addAutoComplete: function(){
+		var that = this
 		var shops = new Bloodhound({
 		  datumTokenizer: function (d) { return Bloodhound.tokenizers.whitespace(d.name); },
 		  queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -40,6 +41,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 							}(jshop)
 						};
 					});
+					that.addShopMarkers(cafes);
 					return cafes
 		    }
 		  }
@@ -59,23 +61,20 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		})
 	},
 
+	addShopMarkers: function(cafes){
+		cafes.forEach(function(cafe){
+			Coffeend.map.addMarker({
+        lat: cafe.location.location.lat,
+        lng: cafe.location.location.lng,
+        title: cafe.name,
+			})
+		})
+	},
+
 	addLocationData: function(event, suggestion, dataset){
 		$('#hangout_lat').val(suggestion.location.location.lat)
 		$('#hangout_lng').val(suggestion.location.location.lng)
 	},
-
-	// changePhoto: function(event, suggestion, dataset){
-	// 	$.ajax({
-	// 		method: "GET",
-	// 		url: "api/coffee_shops/photos",
-	// 		data: {
-	// 			photo_reference: suggestion.photo,
-	// 		},
-	// 		success: function(resp){
-	// 			$($('#shop_photo')).src(resp)
-	// 		}
-	// 	})
-	// },
 
 	createHangout: function(event){
 		event.preventDefault();

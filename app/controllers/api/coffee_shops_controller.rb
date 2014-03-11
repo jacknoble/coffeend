@@ -7,7 +7,6 @@ class Api::CoffeeShopsController < ApplicationController
 
   def photos
   	photo_uri = CoffeeShop.photo_uri(params[:photo_reference])
-  	p photo_uri
   	render RestClient.get(photo_uri)
   end
 end

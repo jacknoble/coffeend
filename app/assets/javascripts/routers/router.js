@@ -13,7 +13,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
     'users/:id': "showOtherUser",
     'user': 'showCurrentUser',
     'profile': 'editProfile',
-    'coffeedates': 'indexUpcomingHangouts'
+    'coffeedates': 'hangoutsIndex'
 	},
 
 	root: function(){
