@@ -67,6 +67,15 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
         lat: cafe.location.location.lat,
         lng: cafe.location.location.lng,
         title: cafe.name,
+        infoWindow: {
+          content: JST['coffee_shops/info']({ shop: cafe })
+        },
+        click: function(e) {
+        	debugger
+          $('#hangout_location_name').val(cafe.name)
+          $('#hangout_lat').val(cafe.location.location.lat)
+					$('#hangout_lng').val(cafe.location.location.lng)
+        }
 			})
 		})
 	},
