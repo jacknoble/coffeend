@@ -2,12 +2,18 @@
 	<input
 		type="hidden"
 		name="authenticity_token"
-		value="<%=form_authenticity_token%>"
-	>
+		value="<%=form_authenticity_token%>" >
 	<label for="user_email">Email:</label>
 	<input type="email" name="user[email]" id="user_email">
 	<br>
 	<label for ="user_password">Password:</label>
 	<input type="password" name="user[password]">
 	<input type="submit" value="Login">
+</form>
+<form action="/session" method="POST">
+  <input type="hidden" name="authenticity_token" 
+    value="<%= form_authenticity_token %>">
+  <input type="hidden" name="user[email]" value="guest@guest.com">
+  <input type="hidden" name="user[password]" value="password">
+  <input type="submit" value="Login as guest">
 </form>
