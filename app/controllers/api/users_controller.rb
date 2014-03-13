@@ -15,11 +15,10 @@ class Api::UsersController < ApplicationController
       0.07, :lat => @lat, :lng => @lng
     )
     p Time.now - t
-    #this needs to be unique users. Use a join table for this?
     @nearby_hangouts.each do |hangout|
       @users << hangout.user
     end
-    
+    p @users.count
     render "api/users/load"
   end
 
