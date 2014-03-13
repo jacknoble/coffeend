@@ -2,8 +2,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	initialize: function(options){
 		this.$rootEl = options.$rootEl;
     this.$bottomEl = options.$bottomEl;
-		var mapShow = new Coffeend.Views.MapShow({collection: Coffeend.hangouts});
-		this.$rootEl.html(mapShow.render().$el);
+    Coffeend.hangoutsMapOn = true
 	},
 
 	routes:{
@@ -16,12 +15,22 @@ Coffeend.Routers.Router = Backbone.Router.extend({
     'coffeedates': 'hangoutsIndex'
 	},
 
+  hangoutsMap: function(){
+    if (Coffeend.hangoutsMapOn == false) {
+      var mapShow = new Coffeend.Views.MapShow({collection: Coffeend.hangouts});
+      this.$rootEl.html(mapShow.render().$el);
+      Coffeend.hangoutsMapOn = true;
+    }
+  },
+
 	root: function(){
+    this.hangoutsMap();
     var rootView = new Coffeend.Views.Root();
     this.$bottomEl.html(rootView.render().$el);
 	},
 
   hangoutsIndex: function(){
+    this.hangoutsMap();
     var hangoutsView = new Coffeend.Views.HangoutIndex();
     this.$bottomEl.html(hangoutsView.render().$el)
   },
@@ -32,6 +41,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
   },
 
   showHangout: function (id) {
+    this.hangoutsMap
     var hangoutShow = new Coffeend.Views.HangoutShow({
       model: Coffeend.hangouts.get(id)
     });

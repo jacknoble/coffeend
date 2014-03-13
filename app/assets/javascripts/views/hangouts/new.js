@@ -4,6 +4,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		var renderedContent = this.template()
 		this.$el.html(renderedContent)
 		var that = this;
+		Coffeend.hangoutsMapOn = false
 		Coffeend.map.removeMarkers()
 		setTimeout( function() {
 		  that.addAutoComplete();
@@ -26,7 +27,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		  prefetch: {
 		    url: 'api/coffee_shops/?location=' + Coffeend.lat + ',' + Coffeend.lng,
 		    filter: function(list) {
-		      var cafes = $.map(list, function(shop) {
+		      var cafes = Coffeend.cafes = $.map(list, function(shop) {
 						var jshop = $.parseJSON(shop)
 						return {
 							name: jshop.name,
@@ -41,12 +42,11 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 							}(jshop)
 						};
 					});
-					that.addShopMarkers(cafes);
+					that.addShopMarkers(Coffeend.cafes)
 					return cafes
 		    }
 		  }
 		});
-
 		shops.initialize();
 		$('#hangout_location_name').typeahead(null, {
 	    displayKey: 'name',
@@ -59,6 +59,9 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		    ].join(''))
   		}
 		})
+		if (typeof Coffeend.cafes !== 'undefined') {
+			this.addShopMarkers(Coffeend.cafes)
+		}
 	},
 
 	addShopMarkers: function(cafes){
