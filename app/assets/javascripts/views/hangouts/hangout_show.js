@@ -1,4 +1,8 @@
 Coffeend.Views.HangoutShow = Backbone.View.extend({
+  initialize: function(){
+    this.listenTo(Coffeend.user, "change", this.render)
+    this.listenTo(this.model, "change", this.render)
+  },
   template: JST["hangouts/hangout_show"],
   render: function () {
     var renderedContent = this.template({ hangout: this.model });
