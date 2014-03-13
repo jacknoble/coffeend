@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
     before_validation :require_session_token
 
   attr_reader :password
-  attr_accessor :nearby_hangouts
 
+  has_many :planned_hangouts, :through => :attendance, :source => :hangout
 
   has_attached_file :photo, :styles => {
     :medium => "200x200>",

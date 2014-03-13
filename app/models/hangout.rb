@@ -3,6 +3,8 @@ class Hangout < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :attending_users, :through => :attendance, :source => :user
+
   def duration=(dur)
     self.end = self.start + dur.to_i.hours
   end
