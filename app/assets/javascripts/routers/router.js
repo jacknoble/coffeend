@@ -55,7 +55,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 
   showOtherUser: function (id) {
     if (id == Coffeend.user.id){
-      this.navigate('profile', true)
+      this.editProfile()
     } else {
       var otherUser = Coffeend.users.get(id);
       if (otherUser) {

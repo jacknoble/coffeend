@@ -2,10 +2,9 @@
   <div class="col-xs-offset-1 col-xs-10 cof-hangout-show-bottom">
 	<%hangouts.each(function(hangout){%>
 		<%var user = Coffeend.users.get(hangout.get('user_id'))%>
-		<p class="cof-text"><%=hangout.escape('location_name')%>, at <%=hangout.escape('start')%> with 
-		<%=user.escape('first_name')%> <%=user.escape('last_name')%></p>
+		<p class="cof-text"><a class="cof-text" href="<%='#/hangouts/'+ hangout.id%>"><%=hangout.escape('location_name')%>, at <%=hangout.escape('start')%></a> with 
+		<a class="cof-text" href="<%='#/users/' + user.id %>"><%=user.escape('first_name')%> <%=user.escape('last_name')%></a></p>
 		<br>
-		<%console.log(Date.parse(hangout.get('start')), hangout.get('start'))%>
 	<%})%>
 	</div>
 </div>

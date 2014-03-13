@@ -97,7 +97,6 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 				Coffeend.hangouts.add(hangout);
 				var id = hangout.id
 				Coffeend.router.navigate("hangouts/" + id, true)
-				Coffeend.map.setCenter({lat: hangout.get('lat'), lng: hangout.get('lng')})
 			}
 		})
 	}
