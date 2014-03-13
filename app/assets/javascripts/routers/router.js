@@ -21,6 +21,11 @@ Coffeend.Routers.Router = Backbone.Router.extend({
     this.$bottomEl.html(rootView.render().$el);
 	},
 
+  hangoutsIndex: function(){
+    var hangoutsView = new Coffeend.Views.HangoutIndex();
+    this.$bottomEl.html(hangoutsView.render().$el)
+  },
+
   editProfile: function(){
     var editUser = new Coffeend.Views.EditUser({model: Coffeend.user});
     this.$bottomEl.html(editUser.render().$el);
@@ -30,7 +35,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
     var hangoutShow = new Coffeend.Views.HangoutShow({
       model: Coffeend.hangouts.get(id)
     });
-    this.$bottomEl.html(hangoutShow.render().$el.html());
+    this.$bottomEl.html(hangoutShow.render().$el);
   },
 
 	newHangout: function(){
@@ -47,7 +52,6 @@ Coffeend.Routers.Router = Backbone.Router.extend({
         var showUser = new Coffeend.Views.UserShow({ model: otherUser });
         this.$bottomEl.html(showUser.render().$el);
       } else {
-        console.log('user not found');
       }
     }
   },

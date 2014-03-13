@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10 cof-hangout-show-bottom">
+	<%hangouts.each(function(hangout){%>
+		<%var user = Coffeend.users.get(hangout.get('user_id'))%>
+		<p class="cof-text"><%=hangout.escape('location_name')%>, at <%=hangout.escape('start')%> with 
+		<%=user.escape('first_name')%> <%=user.escape('last_name')%></p>
+		<br>
+	<%})%>
+	</div>
+</div>
