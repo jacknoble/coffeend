@@ -15,11 +15,17 @@
           <h2 class="coffeend-heading"> When: </h2><span style="margin-left: 20px" class="cof-text"><%= start_time%> to <%= end_time%></span>
         </div>
         <div class="hangout-block">
-          <h2 class="coffeend-heading"> Where: </h2><span style="margin-left: 20px" class="cof-text"><%= hangout.get('location_name') %>
+          <h2 class="coffeend-heading"> Where: </h2><span style="margin-left: 20px" class="cof-text"><%= hangout.escape('location_name') %>
         </div>
       </div>
       <div class="col-xs-4">
-        <h2 class="coffeend-heading"> Who: </h2><span></span>
+        <h2 class="coffeend-heading"> Who: </h2>
+        <span style="margin-left: 20px" class="cof-text">
+          <%hangout.get('attending_users').forEach(function(user){ %>
+            <%console.log(user.id)%>
+            <img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>>
+       <% }) %>
+        </span>
         <h2 class="coffeend-heading"> What: </h2><span style="margin-left: 20px" class="cof-text"><%=hangout.escape('description')%></span> 
       </div>
       <div class="col-xs-3">

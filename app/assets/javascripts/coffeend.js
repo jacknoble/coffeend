@@ -19,6 +19,7 @@ window.Coffeend = {
     );
     Coffeend.user = new Coffeend.Models.User(data['user']);
     Coffeend.users = new Coffeend.Collections.Users(data['users']);
+    Coffeend.users.add(Coffeend.user)
     Coffeend.router = new Coffeend.Routers.Router({
       $rootEl: $root,
       $bottomEl: $bottom

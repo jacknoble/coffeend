@@ -7,6 +7,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		Coffeend.hangoutsMapOn = false
 		this.addAutoComplete();
 		$(this.$el.find('#dtpicker1')).datetimepicker();
+		return this
 	},
 	events: {
 		"submit":"createHangout",

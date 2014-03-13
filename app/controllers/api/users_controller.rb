@@ -5,7 +5,6 @@ class Api::UsersController < ApplicationController
     @users = []
     @lat, @lng = params[:lat].to_f, params[:lng].to_f
     location = [@lat, @lng].join(',')
-    t = Time.now
     if $REDIS.lrange(CoffeeShop.trim_location(location), 0, -1).length < 10
       Thread.new do 
         CoffeeShop.preload_local_coffee_shops(@lat, @lng)
@@ -14,11 +13,10 @@ class Api::UsersController < ApplicationController
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
-    p Time.now - t
+    p @nearby_hangouts
     @nearby_hangouts.each do |hangout|
-      @users << hangout.user
+      @users.concat(hangout.attending_users)
     end
-    p @users.count
     render "api/users/load"
   end
 

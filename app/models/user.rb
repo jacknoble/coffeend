@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  has_many :planned_hangouts, :through => :attendance, :source => :hangout
+  has_many :attendances
+
+  has_many :planned_hangouts, :through => :attendances, :source => :hangout
 
   has_attached_file :photo, :styles => {
     :medium => "200x200>",

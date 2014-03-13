@@ -13,14 +13,13 @@ Coffeend.Views.HangoutShow = Backbone.View.extend({
   },
 
   createAttendance: function(event){
-  	debugger
   	event.preventDefault()
   	$.ajax({
-  		data: $(event.target).data('id'),
+  		data: { attendance: {hangout_id: $(event.target).data('id')} },
   		url: "api/attendances",
   		method: "POST",
   		success: function(resp){
-
+  			
   		}
   	})
   }
