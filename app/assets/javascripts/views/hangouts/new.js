@@ -5,12 +5,8 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		this.$el.html(renderedContent)
 		var that = this;
 		Coffeend.hangoutsMapOn = false
-		Coffeend.map.removeMarkers()
-		setTimeout( function() {
-		  that.addAutoComplete();
-		  $('#dtpicker1').datetimepicker();
-		}, 0);
-		return this
+		this.addAutoComplete();
+		$(this.$el.find('#dtpicker1')).datetimepicker();
 	},
 	events: {
 		"submit":"createHangout",
@@ -48,7 +44,7 @@ Coffeend.Views.NewHangout = Backbone.View.extend({
 		  }
 		});
 		shops.initialize();
-		$('#hangout_location_name').typeahead(null, {
+		$(this.$el.find('#hangout_location_name')).typeahead(null, {
 	    displayKey: 'name',
 	    source: shops.ttAdapter(),
 	    highlight: true,
