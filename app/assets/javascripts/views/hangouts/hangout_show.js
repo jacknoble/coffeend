@@ -8,7 +8,9 @@ Coffeend.Views.HangoutShow = Backbone.View.extend({
     var renderedContent = this.template({ hangout: this.model });
     this.$el.html(renderedContent);
     var center = new google.maps.LatLng(this.model.get('lat'), this.model.get('lng'))
-    Coffeend.map.panTo(center)
+    setTimeout(function(){
+      Coffeend.map.panTo(center)
+    }, 0)
     return this;
   },
 

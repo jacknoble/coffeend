@@ -23,7 +23,7 @@
         <span style="margin-left: 20px" class="cof-text">
           <%hangout.get('attending_users').forEach(function(user){ %>
             <%console.log(user.id)%>
-            <img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>>
+            <a href="<%= '#users/' + user.id%>"><img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>></a>
        <% }) %>
         </span>
         <h2 class="coffeend-heading"> What: </h2><span style="margin-left: 20px" class="cof-text"><%=hangout.escape('description')%></span> 
