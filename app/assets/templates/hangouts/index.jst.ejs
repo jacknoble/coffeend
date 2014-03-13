@@ -5,6 +5,7 @@
 		<p class="cof-text"><%=hangout.escape('location_name')%>, at <%=hangout.escape('start')%> with 
 		<%=user.escape('first_name')%> <%=user.escape('last_name')%></p>
 		<br>
+		<%console.log(Date.parse(hangout.get('start')), hangout.get('start'))%>
 	<%})%>
 	</div>
 </div>

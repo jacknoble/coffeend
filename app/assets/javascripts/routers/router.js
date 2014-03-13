@@ -2,7 +2,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
 	initialize: function(options){
 		this.$rootEl = options.$rootEl;
     this.$bottomEl = options.$bottomEl;
-    Coffeend.hangoutsMapOn = true
+    Coffeend.hangoutsMapOn = false
 	},
 
 	routes:{
@@ -41,7 +41,7 @@ Coffeend.Routers.Router = Backbone.Router.extend({
   },
 
   showHangout: function (id) {
-    this.hangoutsMap
+    this.hangoutsMap()
     var hangoutShow = new Coffeend.Views.HangoutShow({
       model: Coffeend.hangouts.get(id)
     });
