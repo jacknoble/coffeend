@@ -18,7 +18,7 @@
           <h2 class="coffeend-heading"> Where: </h2><span style="margin-left: 20px" class="cof-text"><%= hangout.escape('location_name') %>
         </div>
       </div>
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <h2 class="coffeend-heading"> Who: </h2>
         <span style="margin-left: 20px" class="cof-text">
           <%hangout.get('attending_users').forEach(function(user){ %>
@@ -28,7 +28,12 @@
         <h2 class="coffeend-heading"> What: </h2><span style="margin-left: 20px" class="cof-text"><%=hangout.escape('description')%></span> 
       </div>
       <div class="col-xs-3">
+      <% if (!going) { %>
         <button class="btn coffeend-btn" style="margin-left: -10px;" id="hangout_attend" data-id="<%= hangout.id %>">Go!</button>
+      <% } else { %>
+        <span class="cof-text" style="margin-top: 10px;">You've said you're coming.</span>
+        <button class="btn coffeend-btn" style="margin-top: 10px;" id="hangout_unattend" data-id="<%= hangout.id %>">Backout...</button>
+      <% } %>
       </div>	
     </div>
 	</div> 

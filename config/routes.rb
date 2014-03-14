@@ -12,5 +12,7 @@ Coffeend::Application.routes.draw do
     resources :coffee_shops, :only => [:index]
     get 'coffee_shops/photos' => 'coffee_shops#photos'
     resources :attendances, :only => [:create, :destroy]
+    post 'attendances' => 'attendances#create'
+    delete 'attendances' => 'attendances#destroy'
   end
 end
