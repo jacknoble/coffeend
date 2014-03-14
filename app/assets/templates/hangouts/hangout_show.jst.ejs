@@ -22,14 +22,13 @@
         <h2 class="coffeend-heading"> Who: </h2>
         <span style="margin-left: 20px" class="cof-text">
           <%hangout.get('attending_users').forEach(function(user){ %>
-            <%console.log(user.id)%>
-            <a href="<%= '#users/' + user.id%>"><img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>></a>
+            <a style="padding: 1px;" href="<%= '#users/' + user.id%>"><img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>></a>
        <% }) %>
         </span>
         <h2 class="coffeend-heading"> What: </h2><span style="margin-left: 20px" class="cof-text"><%=hangout.escape('description')%></span> 
       </div>
       <div class="col-xs-3">
-        <button class="btn btn-coffeend" id="hangout_attend" data-id="<%= hangout.id %>">Attend!</button>
+        <button class="btn" style="background-color: #3d2308; color: #e95600; font-family: SketchRockwell; font-size: 16px; margin-left: -10px;" id="hangout_attend" data-id="<%= hangout.id %>">Go!</button>
       </div>	
     </div>
 	</div> 
