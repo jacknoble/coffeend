@@ -1,40 +1,34 @@
-<%
-  var start = new Date(Date.parse(hangout.get('start')));
-  var end = new Date(Date.parse(hangout.get('end')));
-  var end_time = end.toLocaleTimeString();
-  var start_time = start.toLocaleTimeString();
-  var current_time = new Date();
-  start_time = start_time.slice(0, start_time.length - 6);
-  end_time = end_time.slice(0, end_time.length - 6);
 
-%>
-	<div class="row">
-    <div class="col-xs-offset-1 col-xs-12 cof-hangout-show-bottom">
-      <div class="col-xs-4">
-        <div class="hangout-block">
-          <h2 class="coffeend-heading"> When: </h2><span style="margin-left: 20px" class="cof-text"><%= start_time%> to <%= end_time%></span>
-        </div>
-        <div class="hangout-block">
-          <h2 class="coffeend-heading"> Where: </h2><span style="margin-left: 20px" class="cof-text"><%= hangout.escape('location_name') %>
-        </div>
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-12 cof-hangout-show-bottom">
+    <div class="col-xs-4">
+      <div class="hangout-block">
+        <h2 class="coffeend-heading"> When: </h2><span style="margin-left: 20px" class="cof-text">
+        <%var start = moment(hangout.get('start'));%>
+        <%var end = moment(hangout.get('end'))%>
+        <%= start.format("dddd, MMM Do YYYY, h:mm")%> to <%= end.format("h:mm")%></span>
       </div>
-      <div class="col-xs-3">
-        <h2 class="coffeend-heading"> Who: </h2>
-        <span style="margin-left: 20px" class="cof-text">
-          <%hangout.get('attending_users').forEach(function(user){ %>
-            <a style="padding: 1px;" href="<%= '#users/' + user.id%>"><img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>></a>
-       <% }) %>
-        </span>
-        <h2 class="coffeend-heading"> What: </h2><span style="margin-left: 20px" class="cof-text"><%=hangout.escape('description')%></span> 
+      <div class="hangout-block">
+        <h2 class="coffeend-heading"> Where: </h2><span style="margin-left: 20px" class="cof-text"><%= hangout.escape('location_name') %>
       </div>
-      <div class="col-xs-3">
-      <% if (!going) { %>
-        <button class="btn coffeend-btn" style="margin-left: -10px;" id="hangout_attend" data-id="<%= hangout.id %>">Go!</button>
-      <% } else { %>
-        <span class="cof-text" style="margin-top: 10px;">You've said you're coming.</span>
-        <button class="btn coffeend-btn" style="margin-top: 10px;" id="hangout_unattend" data-id="<%= hangout.id %>">Backout...</button>
-      <% } %>
-      </div>	
     </div>
-	</div> 
+    <div class="col-xs-3">
+      <h2 class="coffeend-heading"> Who: </h2>
+      <span style="margin-left: 20px" class="cof-text">
+        <%hangout.get('attending_users').forEach(function(user){ %>
+          <a style="padding: 1px;" href="<%= '#users/' + user.id%>"><img src=<%=Coffeend.users.get(user.id).escape('small_photo') %>></a>
+     <% }) %>
+      </span>
+      <h2 class="coffeend-heading"> What: </h2><span style="margin-left: 20px" class="cof-text"><%=hangout.escape('description')%></span> 
+    </div>
+    <div class="col-xs-3">
+    <% if (!going) { %>
+      <button class="btn coffeend-btn" style="margin-left: -10px;" id="hangout_attend" data-id="<%= hangout.id %>">Go!</button>
+    <% } else { %>
+      <span class="cof-text" style="margin-top: 10px;">You've said you're coming.</span>
+      <button class="btn coffeend-btn" style="margin-top: 10px;" id="hangout_unattend" data-id="<%= hangout.id %>">Backout...</button>
+    <% } %>
+    </div>	
+  </div>
+</div> 
 
