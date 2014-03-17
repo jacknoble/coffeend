@@ -11,10 +11,16 @@
     <span id="user_last_name" data-type="text" class="cof-text" style="font-size: 32px;"><%=user.escape('last_name')%></span>
 
     <br>
-    <span class="cof-text"><%=user.escape('job')%></span>,
-    <span class="cof-text"><%=user.escape('age')%></span>,
-    <span class="cof-text"><%=user.escape('sex')%></span>
-    <br>
+    <% if (user.get('job') !== null) { %>
+        <span class="cof-text"><%=user.escape('job')%>,</span>
+    <% } %>
+    <% if (user.get('age') !== null) { %>
+        <span class="cof-text"><%=user.escape('age')%>,</span>
+    <% } %>
+    <% if (user.get('sex') !== null) { %>
+        <span class="cof-text"><%=user.escape('sex')%></span>
+        <br>
+    <% } %>
     <span class="cof-text"><%=user.escape('email')%></span>
     <br>
 

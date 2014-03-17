@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64(16)
   end
 
+  def sex=(sex)
+    self[:sex] = (sex == "1") ? "Male" : "Female"
+  end
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
 
