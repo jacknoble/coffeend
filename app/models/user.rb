@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_attached_file :photo, :styles => {
     :medium => "200x200>",
     :small => "40x40>",
-  }, :default_url => "/assets/portrait.jpg"
+  }, :default_url => "/assets/:style/portrait.jpg"
 
   validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"] }
 
