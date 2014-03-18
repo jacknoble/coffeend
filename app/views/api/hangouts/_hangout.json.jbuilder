@@ -5,3 +5,8 @@ json.attending_users do
 		json.(user, :id)
 	end
 end
+json.comments do
+	json.array! hangout.comments do |comment|
+		json.(comment, :body, :user_id, :hangout_id)
+	end
+end

@@ -15,7 +15,7 @@ window.Coffeend = {
 		var $root = $('#content');
     var $bottom = $('#bottom');
     Coffeend.hangouts = new Coffeend.Collections.Hangouts(
-      data['nearby_hangouts']
+      data['nearby_hangouts'], {parse: true}
     );
     Coffeend.user = new Coffeend.Models.User(data['user']);
     Coffeend.users = new Coffeend.Collections.Users(data['users']);

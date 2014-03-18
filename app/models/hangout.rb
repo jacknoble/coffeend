@@ -7,6 +7,8 @@ class Hangout < ActiveRecord::Base
 
   has_many :attendances
 
+  has_many :comments
+
   has_many :attending_users, :through => :attendances, :source => :user
 
   def duration=(dur)
@@ -17,7 +19,7 @@ class Hangout < ActiveRecord::Base
     lat = location[:lat]
     lng = location[:lng]
     Hangout
-      .includes(:attending_users)
+      .includes(:attending_users, :comments)
       .where("lat < ? AND lat > ?", lat + rad, lat - rad)
       .where("lng < ? AND lng > ?", lng + rad, lng - rad)
   end

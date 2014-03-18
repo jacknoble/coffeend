@@ -1,4 +1,5 @@
 Coffeend::Application.routes.draw do
+  get "comments/create"
   get "attendances/create"
   get "attendances/destroy"
   root to: "root#root"
@@ -10,9 +11,7 @@ Coffeend::Application.routes.draw do
     resources :users, :only => [:show]
     resources :hangouts, :only => [:create, :index, :destroy, :update]
     resources :coffee_shops, :only => [:index]
-    get 'coffee_shops/photos' => 'coffee_shops#photos'
     resources :attendances, :only => [:create, :destroy]
-    post 'attendances' => 'attendances#create'
-    delete 'attendances' => 'attendances#destroy'
+    resources :comments, :only => [:create]
   end
 end

@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  #this method is too long and does too many things
   def load
     params.permit!
     @user = current_user
@@ -13,7 +14,6 @@ class Api::UsersController < ApplicationController
     @nearby_hangouts = Hangout.find_by_location(
       0.07, :lat => @lat, :lng => @lng
     )
-    p @nearby_hangouts
     @nearby_hangouts.each do |hangout|
       @users.concat(hangout.attending_users)
     end

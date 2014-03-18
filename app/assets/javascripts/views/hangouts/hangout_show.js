@@ -2,6 +2,7 @@ Coffeend.Views.HangoutShow = Backbone.View.extend({
   initialize: function(){
     this.listenTo(Coffeend.user, "change", this.render)
     this.listenTo(this.model, "change", this.render)
+    this.listenTo(this.model.get('comments'), "add", this.render)
   },
   template: JST["hangouts/hangout_show"],
   render: function () {
@@ -27,7 +28,8 @@ Coffeend.Views.HangoutShow = Backbone.View.extend({
 
   events: {
   	"click #hangout_attend":"createAttendance",
-    "click #hangout_unattend":"destroyAttendance"
+    "click #hangout_unattend":"destroyAttendance",
+    "submit":"newComment"
   },
 
   createAttendance: function(event){
@@ -54,5 +56,19 @@ Coffeend.Views.HangoutShow = Backbone.View.extend({
         that.model.set(resp)
       }
     })
+  },
+
+  newComment: function(event) {
+    event.preventDefault();
+    var that = this;
+    var params = $(event.target).serializeJSON();
+    var comment = params.comment = new Coffeend.Models.Comment(params.comment);
+    params.comment.set({hangout_id: this.model.id })
+    comment.save({}, {
+      success: function(data){
+        that.model.get('comments').add(comment)
+      }
+    })
+
   }
 });
