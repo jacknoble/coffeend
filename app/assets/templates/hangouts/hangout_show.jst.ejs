@@ -42,12 +42,12 @@
     <%comments = hangout.get('comments') %>
     <%comments.each(function(comment){ %>
       <%var id = comment.get('user_id') %>
+        <div class="well" style="background-color:rgba(61, 35, 8, 0.5); border-style: none;>
         <span>
         <img style="margin-top: 5px;" src="<%=Coffeend.users.get(comment.get('user_id')).get('small_photo')%>">
         <p class="cof-text"><%=comment.get('body')%></p>
         </span>
-        
-        <br>
+        </div>
     <% }) %>
   </div>
 </div>
