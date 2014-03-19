@@ -1,22 +1,11 @@
 <%
-  var days = ['Sunday', 
-              'Monday', 
-              'Tuesday', 
-              'Wednesday', 
-              'Thursday', 
-              'Friday', 
-              'Saturday']
-
   var status;
   var color;
-  var start = new Date(Date.parse(hangout.get('start')));
-  var end = new Date(Date.parse(hangout.get('end')));
-  var end_time = end.toLocaleTimeString();
-  var start_time = start.toLocaleTimeString();
-  var current_time = new Date();
+  var start = moment(hangout.get('start'));
+  var end = moment(hangout.get('end'));
+  var current_time = moment();
   var user = Coffeend.users.get(hangout.get('user_id'));
-  start_time = start_time.slice(0, start_time.length - 6);
-  end_time = end_time.slice(0, end_time.length - 6);
+  
 
   if (current_time < end && current_time > start) {
     status = "Happening now";
@@ -31,7 +20,7 @@
 %>
 <p class="start-time">
   <strong>When: </strong>
-<%= days[start.getDay()] %> <%= start_time %> - <%= end_time%></p>
+<%= start.utc().format("dddd, h:m a") %> - <%= end.utc().format("h:m a")%></p>
 Check <a href="#/users/<%= user.id %>"> 
   <%= user.escape('first_name') %>
 </a> out!
