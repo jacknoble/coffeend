@@ -11,6 +11,10 @@
 			<input type="email" name="user[email]" id="user_email" class="form-control" placeholder="Email">
 			<br>
 			<input type="password" name="user[password]" class="form-control" placeholder="Password">
+				<%[*flash[:errors]].each do |error|%>
+					<p style="color: #7A0000;"><%=error%></p>
+				<%end%>
+			<br>
 			<input type="submit" class="btn coffeend-btn form-control" value="Login">
 		</div>
 		</form>

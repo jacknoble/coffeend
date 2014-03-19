@@ -2,6 +2,14 @@
 <div class="row">
 	<div class="col-xs-offset-1 col-xs-4">
 		<h2 class="cof-text">Welcome to Coffee Date, the social network for highly caffeinated loners.</h2>
+		<form action="/session" method="POST">
+		  <input type="hidden" name="authenticity_token" 
+		    value="<%= form_authenticity_token %>">
+		  <input type="hidden" name="user[email]" value="guest@guest.com">
+		  <input type="hidden" name="user[password]" value="password">
+		  <br>
+		  <input type="submit" class="btn coffeend-btn" value="Login as Guest">
+		</form>
 	</div>
 	<div class="col-xs-offset-1 col-xs-3">
 		<form action="/users" method="post" class="cof-text">
@@ -25,6 +33,9 @@
 				<br>
 				<input class="form-control" type="text" name="user[last_name]" placeholder="Last Name">
 				<br>
+				<%[*flash[:errors]].each do |error|%>
+					<p style="color: #7A0000;"><%=error%></p>
+				<%end%>
 				<input  type="submit" class="btn coffeend-btn form-control" value="Sign up">
 			</div>
 		</form>
