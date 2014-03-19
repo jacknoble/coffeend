@@ -26,13 +26,21 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="#">Home</a></li>
-      <li><a href="#new">New</a></li>
-      <li><a href="#coffeedates">Upcoming</a></li>
-      <li><a href="#profile">Profile</a></li>
+			<%if logged_in? %>
+				<li><a href="#">Home</a></li>
+	      <li><a href="#new">New</a></li>
+	      <li><a href="#coffeedates">Upcoming</a></li>
+	      <li><a href="#profile">Profile</a></li>
+	    <% else %>
+	    	<li><a href="/users/new">Sign Up</a></li>
+	    <% end %>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><%=link_to("Logout", session_url, :method => :delete)%></li>
+			<%if logged_in? %>
+				<li><%=link_to("Logout", session_url, :method => :delete)%></li>
+			<% else %>
+				<li><a href="/sessions/new">Login</a></li>
+			<%end%>
 		</ul>
 	</div><!-- /.navbar-collapse -->
 </nav>
