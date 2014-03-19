@@ -40,6 +40,6 @@ Check <a href="#/users/<%= user.id %>">
 <% } %>
 <strong><p style="color: <%= color %>"><%= status %></p></strong>
 <% if (Coffeend.user.id === hangout.get('user_id')) { %>
-  <button class="btn btn-default">Cancel Event</button>
+  <button id="cancel" data-id="<%=hangout.id%>" class="btn btn-default">Cancel Event</button>
 <% } %>
 

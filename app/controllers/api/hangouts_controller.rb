@@ -16,6 +16,9 @@ class Api::HangoutsController < ApplicationController
   end
 
   def destroy
+    @hangout = Hangout.find(params[:id])
+    @hangout.destroy
+    render :json => {}
   end
 
   def update

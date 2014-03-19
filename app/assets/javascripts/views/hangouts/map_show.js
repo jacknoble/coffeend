@@ -8,6 +8,10 @@ Coffeend.Views.MapShow = Backbone.View.extend({
 		class: "col-xs-10 col-xs-offset-1",
 	},
 
+	events: {
+		"click #cancel":"cancelHangout"
+	},
+
 	render: function () {
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
@@ -47,5 +51,14 @@ Coffeend.Views.MapShow = Backbone.View.extend({
 		});
 		this.renderMarkers()
 	},
+
+	cancelHangout: function(event){
+		event.preventDefault();
+		var id = $(event.target).data('id')
+		var hangout = Coffeend.hangouts.get(id)
+		hangout.destroy({
+
+		})
+	}
 
 });
