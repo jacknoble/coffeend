@@ -2,11 +2,18 @@
 <div class="row">
   <div class="col-xs-offset-1 col-xs-12 cof-hangout-show-bottom">
     <div class="col-xs-4">
-      <div class="hangout-block">
-        <h2 class="coffeend-heading"> When: </h2><span style="margin-left: 20px" class="cof-text">
+      <div class="hangout-block cof-text">
+        <h2 class="coffeend-heading"> When: </h2>
         <%var start = moment(hangout.get('start'));%>
         <%var end = moment(hangout.get('end'))%>
-        <%= start.format("dddd, MMM Do YYYY, h:mm")%> to <%= end.format("h:mm")%></span>
+        <p style="margin-left: 20px" class="cof-text">
+          <%= start.utc().format("dddd, MMM Do YYYY")%>
+        </p>
+        <p style="margin-left: 60px">
+          <%= start.utc().format("h:mm a") %>
+        </p>
+        <p style="margin-left: 80px; margin-top: -10px; margin-bottom: 0px;">to</p>
+        <p style="margin-left: 60px;"><%= end.utc().format("h:mm a")%></p>
       </div>
       <div class="hangout-block">
         <h2 class="coffeend-heading"> Where: </h2><span style="margin-left: 20px" class="cof-text"><%= hangout.escape('location_name') %>
