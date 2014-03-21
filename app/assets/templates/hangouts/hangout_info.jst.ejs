@@ -1,10 +1,14 @@
+
 <%
   var status;
   var color;
-  var start = moment(hangout.get('start'));
-  var end = moment(hangout.get('end'));
+  var utcStart = moment(hangout.get('start')).utc();
+  var start = moment(utcStart).zone(moment().zone()).add('minutes', moment().zone())
+  var utcEnd = moment(hangout.get('end')).utc();
+  var end = moment(utcEnd).zone(moment().zone()).add('minutes', moment().zone())
   var current_time = moment();
   var user = Coffeend.users.get(hangout.get('user_id'));
+
   
 
   if (current_time < end && current_time > start) {
@@ -18,9 +22,10 @@
     color = 'green';
   } 
 %>
+
 <p class="start-time">
   <strong>When: </strong>
-<%= start.utc().format("dddd, h:m a") %> - <%= end.utc().format("h:m a")%></p>
+<%= start.format("dddd, h:mm a") %> - <%= end.format("h:mm a")%></p>
 Check <a href="#/users/<%= user.id %>"> 
   <%= user.escape('first_name') %>
 </a> out!

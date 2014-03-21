@@ -1,9 +1,11 @@
 <div class="row">
   <div class="col-xs-offset-1 col-xs-10 cof-hangout-show-bottom">
 	<%hangouts.each(function(hangout){%>
-		<% if (moment(hangout.get('start')).utc() > moment()) { %>
+		<%var zone =  moment().zone()%>
+		<%var end = moment(hangout.get('end')).zone(zone).add('minutes', zone)%>
+		<% if (end > moment()) { %>
 			<%var user = Coffeend.users.get(hangout.get('user_id'))%>
-			<p class="cof-text"><a class="cof-text" href="<%='#/hangouts/'+ hangout.id%>"><%=hangout.escape('location_name')%>, on <%=moment(hangout.get('start')).utc().format("dddd, MMM Do YYYY, h:mm")%></a> with 
+			<p class="cof-text"><a class="cof-text" href="<%='#/hangouts/'+ hangout.id%>"><%=hangout.escape('location_name')%>, on <%=moment(hangout.get('start')).utc().format("dddd, MMM Do YYYY, h:mm a")%></a> with 
 			<a class="cof-text" href="<%='#/users/' + user.id %>"><%=user.escape('first_name')%> <%=user.escape('last_name')%></a></p>
 			<br>
 	<% } %>
