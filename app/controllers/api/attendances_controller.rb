@@ -1,4 +1,5 @@
 class Api::AttendancesController < ApplicationController
+	before_action :require_logged_in
 
 	def create
 		params[:attendance][:user_id] = current_user.id

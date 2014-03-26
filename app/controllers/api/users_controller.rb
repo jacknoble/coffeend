@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in
   #this method is too long and does too many things
   def load
     params.permit!

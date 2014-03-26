@@ -1,4 +1,5 @@
 class Api::CoffeeShopsController < ApplicationController
+	before_action :require_logged_in
   def index
   	location = CoffeeShop.trim_location(params[:location])
     @shops = $REDIS.lrange(location, 0, -1)
